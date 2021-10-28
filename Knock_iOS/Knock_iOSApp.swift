@@ -11,7 +11,13 @@ import SwiftUI
 struct Knock_iOSApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            PreLaunch()
         }
+    }
+    
+    static func returnAndSetOnBoardingCurrentItemToLogin() -> OnBoardingObserver {
+        let onBoardingObserver = OnBoardingObserver()
+        onBoardingObserver.onBoardingCurrentItem = "login"
+        return onBoardingObserver
     }
 }

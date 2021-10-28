@@ -13,6 +13,18 @@
 		09C3029B272A23A600A2A54E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09C3029A272A23A600A2A54E /* Preview Assets.xcassets */; };
 		09C302A6272A23A600A2A54E /* Knock_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C302A5272A23A600A2A54E /* Knock_iOSTests.swift */; };
 		09C302B1272A23A600A2A54E /* Knock_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C302B0272A23A600A2A54E /* Knock_iOSUITests.swift */; };
+		09C302BF272A490A00A2A54E /* PreLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C302BE272A490A00A2A54E /* PreLaunch.swift */; };
+		09C302C2272A49B900A2A54E /* OnBoardingObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C302C1272A49B900A2A54E /* OnBoardingObserver.swift */; };
+		09C302C4272A49D100A2A54E /* OnBoardingHubContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C302C3272A49D100A2A54E /* OnBoardingHubContentView.swift */; };
+		09C302C6272A49FE00A2A54E /* OnBoardingContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C302C5272A49FE00A2A54E /* OnBoardingContentView.swift */; };
+		09C302C9272A4C9000A2A54E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C302C8272A4C9000A2A54E /* Constants.swift */; };
+		09C302CB272A4D6800A2A54E /* OnBoardingContentView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C302CA272A4D6800A2A54E /* OnBoardingContentView1.swift */; };
+		09C302CD272A4D7F00A2A54E /* OnBoardingContentView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C302CC272A4D7F00A2A54E /* OnBoardingContentView2.swift */; };
+		09C302CF272A4D9600A2A54E /* OnBoardingContentView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C302CE272A4D9600A2A54E /* OnBoardingContentView3.swift */; };
+		09C302D1272A4DF300A2A54E /* LoginContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C302D0272A4DF300A2A54E /* LoginContentView.swift */; };
+		09C302D3272A4E0300A2A54E /* SignupContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C302D2272A4E0300A2A54E /* SignupContentView.swift */; };
+		09C302D6272A4F8300A2A54E /* HomeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C302D5272A4F8300A2A54E /* HomeContentView.swift */; };
+		09C302D8272A523F00A2A54E /* OnBoardingFooterContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C302D7272A523F00A2A54E /* OnBoardingFooterContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +57,18 @@
 		09C302AC272A23A600A2A54E /* Knock_iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Knock_iOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		09C302B0272A23A600A2A54E /* Knock_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Knock_iOSUITests.swift; sourceTree = "<group>"; };
 		09C302B2272A23A700A2A54E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		09C302BE272A490A00A2A54E /* PreLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreLaunch.swift; sourceTree = "<group>"; };
+		09C302C1272A49B900A2A54E /* OnBoardingObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingObserver.swift; sourceTree = "<group>"; };
+		09C302C3272A49D100A2A54E /* OnBoardingHubContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingHubContentView.swift; sourceTree = "<group>"; };
+		09C302C5272A49FE00A2A54E /* OnBoardingContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingContentView.swift; sourceTree = "<group>"; };
+		09C302C8272A4C9000A2A54E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		09C302CA272A4D6800A2A54E /* OnBoardingContentView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingContentView1.swift; sourceTree = "<group>"; };
+		09C302CC272A4D7F00A2A54E /* OnBoardingContentView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingContentView2.swift; sourceTree = "<group>"; };
+		09C302CE272A4D9600A2A54E /* OnBoardingContentView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingContentView3.swift; sourceTree = "<group>"; };
+		09C302D0272A4DF300A2A54E /* LoginContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContentView.swift; sourceTree = "<group>"; };
+		09C302D2272A4E0300A2A54E /* SignupContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupContentView.swift; sourceTree = "<group>"; };
+		09C302D5272A4F8300A2A54E /* HomeContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentView.swift; sourceTree = "<group>"; };
+		09C302D7272A523F00A2A54E /* OnBoardingFooterContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingFooterContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,11 +119,15 @@
 		09C30292272A23A300A2A54E /* Knock_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				09C302D4272A4F6D00A2A54E /* AfterLogin */,
+				09C302C7272A4C7400A2A54E /* Utils */,
+				09C302C0272A491300A2A54E /* OnBoarding */,
 				09C30293272A23A300A2A54E /* Knock_iOSApp.swift */,
 				09C30295272A23A300A2A54E /* ContentView.swift */,
 				09C30297272A23A600A2A54E /* Assets.xcassets */,
 				09C3029C272A23A600A2A54E /* Info.plist */,
 				09C30299272A23A600A2A54E /* Preview Content */,
+				09C302BE272A490A00A2A54E /* PreLaunch.swift */,
 			);
 			path = Knock_iOS;
 			sourceTree = "<group>";
@@ -128,6 +156,38 @@
 				09C302B2272A23A700A2A54E /* Info.plist */,
 			);
 			path = Knock_iOSUITests;
+			sourceTree = "<group>";
+		};
+		09C302C0272A491300A2A54E /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				09C302C1272A49B900A2A54E /* OnBoardingObserver.swift */,
+				09C302C3272A49D100A2A54E /* OnBoardingHubContentView.swift */,
+				09C302C5272A49FE00A2A54E /* OnBoardingContentView.swift */,
+				09C302CA272A4D6800A2A54E /* OnBoardingContentView1.swift */,
+				09C302CC272A4D7F00A2A54E /* OnBoardingContentView2.swift */,
+				09C302CE272A4D9600A2A54E /* OnBoardingContentView3.swift */,
+				09C302D0272A4DF300A2A54E /* LoginContentView.swift */,
+				09C302D2272A4E0300A2A54E /* SignupContentView.swift */,
+				09C302D7272A523F00A2A54E /* OnBoardingFooterContentView.swift */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		09C302C7272A4C7400A2A54E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				09C302C8272A4C9000A2A54E /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		09C302D4272A4F6D00A2A54E /* AfterLogin */ = {
+			isa = PBXGroup;
+			children = (
+				09C302D5272A4F8300A2A54E /* HomeContentView.swift */,
+			);
+			path = AfterLogin;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +319,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09C302D6272A4F8300A2A54E /* HomeContentView.swift in Sources */,
+				09C302C4272A49D100A2A54E /* OnBoardingHubContentView.swift in Sources */,
+				09C302CB272A4D6800A2A54E /* OnBoardingContentView1.swift in Sources */,
+				09C302C6272A49FE00A2A54E /* OnBoardingContentView.swift in Sources */,
 				09C30296272A23A300A2A54E /* ContentView.swift in Sources */,
+				09C302BF272A490A00A2A54E /* PreLaunch.swift in Sources */,
+				09C302D8272A523F00A2A54E /* OnBoardingFooterContentView.swift in Sources */,
+				09C302C9272A4C9000A2A54E /* Constants.swift in Sources */,
+				09C302C2272A49B900A2A54E /* OnBoardingObserver.swift in Sources */,
 				09C30294272A23A300A2A54E /* Knock_iOSApp.swift in Sources */,
+				09C302D1272A4DF300A2A54E /* LoginContentView.swift in Sources */,
+				09C302CD272A4D7F00A2A54E /* OnBoardingContentView2.swift in Sources */,
+				09C302D3272A4E0300A2A54E /* SignupContentView.swift in Sources */,
+				09C302CF272A4D9600A2A54E /* OnBoardingContentView3.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
