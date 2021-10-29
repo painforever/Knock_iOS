@@ -23,7 +23,7 @@ struct PreLaunch: View {
                 }
                 else {
                     if let _ = UserDefaults.standard.string(forKey: Constants.userId) {
-                        HomeContentView()
+                        TabbarContentView()
                     }
                     else {
                         OnBoardingHubContentView().environmentObject(Knock_iOSApp.returnAndSetOnBoardingCurrentItemToLogin())
