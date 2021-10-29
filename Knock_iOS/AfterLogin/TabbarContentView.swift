@@ -10,7 +10,7 @@ import SwiftUI
 struct TabbarContentView: View {
     var body: some View {
         TabView {
-            Text("").tabItem {
+            DiscoverContentView().tabItem {
                 Image(systemName: "magnifyingglass.circle").font(.system(size: 50, weight: .regular))
             }
             

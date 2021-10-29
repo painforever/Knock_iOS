@@ -33,9 +33,9 @@ struct PreLaunch: View {
             else {
                 ZStack {
                     Color(Constants.themeColor)
-                    HStack {
-                        Text("Honest").font(.system(size: 50)).fontWeight(.bold)
-                        Text("401K").font(.system(size: 48)).foregroundColor(.white)
+                    VStack {
+                        Text("Knock, Knock").font(.system(size: 50)).fontWeight(.bold)
+                        Text("Be bold enough to know anyone who potentially useful to you.").padding().font(.system(size: 20)).foregroundColor(.white)
                     }.rotation3DEffect(.degrees(angle), axis: (x: 0.0, y: 1.0, z: 0.0))
                     .opacity(opacity)
                     .scaleEffect(scale)
