@@ -11,7 +11,7 @@ struct DiscoverContentView: View {
     @State var searchTerm: String = "Elon Musk"
     var body: some View {
         ZStack {
-            Rectangle().fill(Color(Constants.themeColor))
+            Rectangle().fill(Color(Constants.themeColor)).ignoresSafeArea()
             VStack {
                 HStack {
                     Text("Discover").font(.system(size: 50, weight: .heavy))
@@ -20,15 +20,18 @@ struct DiscoverContentView: View {
                 
                 TextField("People or fields you are interested...", text: $searchTerm).padding().overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.white, lineWidth: 1)).foregroundColor(.white).padding()
                 
-//                List {
-//                    ForEach(data, id: \self) { card in
-//                        DiscoverPeopleCardContentView()
-//                    }
+                List {
+                    ForEach(0..<5) { card in
+                        DiscoverPeopleCardContentView(bgImage: .constant(Constants.discoverPeopleCard1), username: .constant("painforever"))
+                    }
+                }
+//                ForEach(0..<5) { card in
+//                    DiscoverPeopleCardContentView(bgImage: .constant(Constants.discoverPeopleCard1), username: .constant("painforever"))
 //                }
                 
             }
             
-        }.ignoresSafeArea()
+        }
     }
 }
 

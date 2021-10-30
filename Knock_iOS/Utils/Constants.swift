@@ -20,4 +20,12 @@ class Constants {
         UserDefaults.standard.removeObject(forKey: Constants.firstTimeUseApp)
         UserDefaults.standard.removeObject(forKey: Constants.userId)
     }
+    
+    
+    //bg images for people card in Discover
+    static let discoverPeopleCard1 = "https://wallpapers.com/images/high/new-york-city-2016-wallpaper-for-pc-and-mac-tablet-laptop-mobile-txvbwr1rdszlxdef.jpg"
+    static let discoverPeopleCard2 = "https://lh3.googleusercontent.com/proxy/3wXEbkRqVWdqNlzke5m1yXYCde9cGAWrnkUC7gsdTjb2nMSP4YBkk3ddXgnVrq1KRNdLR94F5OjNi7ky2_3-nJQoOy0wlEenhdeGlj4YmlpYOJlHxPXv_v4r1kied7WGGCQCJsL9WXGNuoHabQdY"
+    static let discoverPeopleCard3 = "https://media.istockphoto.com/photos/digital-business-interface-wallpaper-picture-id1146508655?k=20&m=1146508655&s=170667a&w=0&h=6BbLBwaPRe1DEJDYKooFLkDW0vbrjogrhhNzfc4rulU="
+    static let discoverPeopleCard4 = "https://free4kwallpapers.com/uploads/originals/2020/04/05/beijing-central-business-district-wallpaper.jpg"
+    static let discoverPeopleCard5 = "https://img.wallpapersafari.com/desktop/1680/1050/9/62/9BTMvX.jpg"
 }
