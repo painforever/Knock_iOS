@@ -27,6 +27,7 @@
 		09C302D3272A4E0300A2A54E /* SignupContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C302D2272A4E0300A2A54E /* SignupContentView.swift */; };
 		09C302D6272A4F8300A2A54E /* TabbarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C302D5272A4F8300A2A54E /* TabbarContentView.swift */; };
 		09C302D8272A523F00A2A54E /* OnBoardingFooterContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C302D7272A523F00A2A54E /* OnBoardingFooterContentView.swift */; };
+		09F44B3B272CC7DB003022FA /* DiscoverPeopleCardContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F44B3A272CC7DB003022FA /* DiscoverPeopleCardContentView.swift */; };
 		9E4558E10DA000924C4C3372 /* Pods_Knock_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C42B10698BECE5197640AD2 /* Pods_Knock_iOS.framework */; };
 		A8C5ED2FB6A2D3700F6F0EC2 /* Pods_Knock_iOS_Knock_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B9C59DE1448CBC2D1BECCFC /* Pods_Knock_iOS_Knock_iOSUITests.framework */; };
 		B3A44B90A1CC0D4C109DB8E3 /* Pods_Knock_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D51DBD50A269940FD9714349 /* Pods_Knock_iOSTests.framework */; };
@@ -76,6 +77,7 @@
 		09C302D2272A4E0300A2A54E /* SignupContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupContentView.swift; sourceTree = "<group>"; };
 		09C302D5272A4F8300A2A54E /* TabbarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarContentView.swift; sourceTree = "<group>"; };
 		09C302D7272A523F00A2A54E /* OnBoardingFooterContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingFooterContentView.swift; sourceTree = "<group>"; };
+		09F44B3A272CC7DB003022FA /* DiscoverPeopleCardContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverPeopleCardContentView.swift; sourceTree = "<group>"; };
 		1A48CD9E11C4F7F2DEEDB2AF /* Pods-Knock_iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Knock_iOSTests.release.xcconfig"; path = "Target Support Files/Pods-Knock_iOSTests/Pods-Knock_iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		33B76A71F4EACDD9961C37DA /* Pods-Knock_iOS-Knock_iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Knock_iOS-Knock_iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-Knock_iOS-Knock_iOSUITests/Pods-Knock_iOS-Knock_iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4C42B10698BECE5197640AD2 /* Pods_Knock_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Knock_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,10 +235,19 @@
 		09C302D4272A4F6D00A2A54E /* AfterLogin */ = {
 			isa = PBXGroup;
 			children = (
+				09F44B39272CC7A7003022FA /* Discover */,
 				09C302D5272A4F8300A2A54E /* TabbarContentView.swift */,
-				097B8E6E272B6EDB00BDFFAA /* DiscoverContentView.swift */,
 			);
 			path = AfterLogin;
+			sourceTree = "<group>";
+		};
+		09F44B39272CC7A7003022FA /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				097B8E6E272B6EDB00BDFFAA /* DiscoverContentView.swift */,
+				09F44B3A272CC7DB003022FA /* DiscoverPeopleCardContentView.swift */,
+			);
+			path = Discover;
 			sourceTree = "<group>";
 		};
 		A42DA0663A4312AABB6DDDE2 /* Pods */ = {
@@ -494,6 +505,7 @@
 				09C302CB272A4D6800A2A54E /* OnBoardingContentView1.swift in Sources */,
 				09C302C6272A49FE00A2A54E /* OnBoardingContentView.swift in Sources */,
 				09C302BF272A490A00A2A54E /* PreLaunch.swift in Sources */,
+				09F44B3B272CC7DB003022FA /* DiscoverPeopleCardContentView.swift in Sources */,
 				09C302D8272A523F00A2A54E /* OnBoardingFooterContentView.swift in Sources */,
 				09C302C9272A4C9000A2A54E /* Constants.swift in Sources */,
 				09C302C2272A49B900A2A54E /* OnBoardingObserver.swift in Sources */,

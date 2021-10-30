@@ -20,6 +20,12 @@ struct DiscoverContentView: View {
                 
                 TextField("People or fields you are interested...", text: $searchTerm).padding().overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.white, lineWidth: 1)).foregroundColor(.white).padding()
                 
+//                List {
+//                    ForEach(data, id: \self) { card in
+//                        DiscoverPeopleCardContentView()
+//                    }
+//                }
+                
             }
             
         }.ignoresSafeArea()

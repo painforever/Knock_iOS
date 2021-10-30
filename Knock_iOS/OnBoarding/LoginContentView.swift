@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Alamofire
+import SwiftyJSON
 
 extension LoginContentView {
     class LoginContentViewViewModel: ObservableObject {
@@ -66,7 +68,24 @@ struct LoginContentView: View {
                         }
                         
                         Button(action: {
-                            
+                            AF.request("\(Constants.BaseUrl)/auth/login", method: .post, parameters: [
+                                        "email": self.viewModel.email,
+                                        "password": self.viewModel.password])
+                                .responseData { data in
+                                    let json = try! JSON(data: data.data!)
+                                    if json["result"].stringValue == "yes" {
+                                        UserDefaults.standard.set(json["data"]["id"].stringValue, forKey: Constants.userId)
+                                        self.loginSuccess = true
+                                        self.credentialsWrong = false
+                                        self.isLoading = false
+                                    }
+                                    else {
+                                        self.loginSuccess = false
+                                        self.credentialsWrong = true
+                                        self.isLoading = false
+                                    }
+                                
+                            }
                         }, label: {
                             Text("Login").foregroundColor(Color(Constants.themeColor)).fontWeight(.bold).font(.system(size: 20)).frame(maxWidth: .infinity).frame(height: 50).background(Color(.white)).cornerRadius(10).padding()
                         }).disabled(loginBtnDisabled())
