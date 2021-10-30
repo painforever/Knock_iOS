@@ -46,5 +46,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Knock would like to know your Geo location.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Knock would like to know your Geo location to better serve you.</string>
 </dict>
 </plist>

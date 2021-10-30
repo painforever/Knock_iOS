@@ -17,8 +17,8 @@ extension LoginContentView {
         @Published var passwordError: String = ""
         
         init() {
-//            $email.map { $0.count > 0 && ($0.count < 4 || !Validators.isValidEmail($0)) ? "Email is not valid!" : "" }.assign(to: &$emailError)
-//            $password.map { $0.count < 6 && $0.count > 0 ? "Password is not valid!" : ""}.assign(to: &$passwordError)
+            $email.map { $0.count > 0 && ($0.count < 4 || !Validators.isValidEmail($0)) ? "Email is not valid!" : "" }.assign(to: &$emailError)
+            $password.map { $0.count < 6 && $0.count > 0 ? "Password is not valid!" : ""}.assign(to: &$passwordError)
         }
     }
 }
@@ -31,6 +31,7 @@ struct LoginContentView: View {
     @State var isLoading: Bool = false
     
     @ObservedObject var viewModel = Self.LoginContentViewViewModel()
+    @StateObject var locationManager = LocationManager()
     
     var body: some View {
         if loginSuccess {
@@ -68,10 +69,14 @@ struct LoginContentView: View {
                         }
                         
                         Button(action: {
+                            let lat = self.locationManager.lastLocation?.coordinate.latitude
+                            let lon = self.locationManager.lastLocation?.coordinate.longitude
+                            
                             AF.request("\(Constants.BaseUrl)/auth/login", method: .post, parameters: [
                                         "email": self.viewModel.email,
-                                        "password": self.viewModel.password])
-                                .responseData { data in
+                                        "password": self.viewModel.password,
+                                        "latitude": lat, "longitude": lon
+                                ]).responseData { data in
                                     let json = try! JSON(data: data.data!)
                                     if json["result"].stringValue == "yes" {
                                         UserDefaults.standard.set(json["data"]["id"].stringValue, forKey: Constants.userId)
@@ -84,7 +89,6 @@ struct LoginContentView: View {
                                         self.credentialsWrong = true
                                         self.isLoading = false
                                     }
-                                
                             }
                         }, label: {
                             Text("Login").foregroundColor(Color(Constants.themeColor)).fontWeight(.bold).font(.system(size: 20)).frame(maxWidth: .infinity).frame(height: 50).background(Color(.white)).cornerRadius(10).padding()

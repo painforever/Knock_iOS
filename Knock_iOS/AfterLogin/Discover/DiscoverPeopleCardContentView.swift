@@ -28,7 +28,6 @@ struct DiscoverPeopleCardContentView: View {
                     Image("get_in_touch").resizable().frame(width: 30, height: 30).foregroundColor(.white)
                 }
                 .padding(.horizontal, 20)
-                
             }.background(Color(Constants.themeColor))
             
             

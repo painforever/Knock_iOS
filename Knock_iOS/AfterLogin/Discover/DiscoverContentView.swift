@@ -8,17 +8,33 @@
 import SwiftUI
 
 struct DiscoverContentView: View {
-    @State var searchTerm: String = "Elon Musk"
+    @State var searchTerm: String = ""
+    @State var showFilterPeopleContentView = false
+    
     var body: some View {
         ZStack {
             Rectangle().fill(Color(Constants.themeColor)).ignoresSafeArea()
             VStack {
                 HStack {
-                    Text("Discover").font(.system(size: 50, weight: .heavy))
+                    Text("Discover").font(.system(size: 50, weight: .heavy)).foregroundColor(.white)
                     Spacer()
                 }.padding(.horizontal, 20)
                 
-                TextField("People or fields you are interested...", text: $searchTerm).padding().overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.white, lineWidth: 1)).foregroundColor(.white).padding()
+                HStack(alignment: .center, spacing: 10) {
+                    TextField("People or fields you are interested...", text: $searchTerm).padding().overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.white, lineWidth: 1)).foregroundColor(.white).padding()
+                    Button(action: {
+                        self.showFilterPeopleContentView = true
+                    }, label: {
+                        Image(systemName: "slider.horizontal.3").font(.system(size: 25, weight: .regular)).foregroundColor(.white)
+                    }).sheet(isPresented: $showFilterPeopleContentView) {
+                        FilterPeopleContentView()
+                    }
+                    Button(action: {
+                        
+                    }, label: {
+                        Image(systemName: "magnifyingglass").font(.system(size: 25, weight: .regular)).foregroundColor(.white)
+                    }).padding(.trailing, 20)
+                }
                 
                 List {
                     ForEach(0..<5) { card in
