@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FilterPeopleContentView: View {
     @State var price = 10.00
+    @State var showMap: Bool = false
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -19,10 +20,24 @@ struct FilterPeopleContentView: View {
                     Text("Location")
                     Spacer()
                     Text("1600 S Joyce St, Arlington, VA")
-                    Image(systemName: "arrowtriangle.forward.fill").font(.system(size: 16, weight: .regular))
+                    if self.showMap {
+                        Image(systemName: "arrowtriangle.down.fill").font(.system(size: 16, weight: .regular))
+                    }
+                    else {
+                        Image(systemName: "arrowtriangle.forward.fill").font(.system(size: 16, weight: .regular))
+                    }
+                    
                 }
                 .padding(20)
                 .foregroundColor(.white)
+                .onTapGesture {
+                    withAnimation {
+                        self.showMap.toggle()
+                    }
+                }
+                if self.showMap {
+                    LocationContentView()
+                }
                 
                 Divider().background(Color(.white))
                 

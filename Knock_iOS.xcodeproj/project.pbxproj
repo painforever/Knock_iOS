@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		090FED662734D91600446883 /* LocationContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090FED652734D91600446883 /* LocationContentView.swift */; };
 		097B8E69272B4C7000BDFFAA /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097B8E68272B4C7000BDFFAA /* Validators.swift */; };
 		097B8E6D272B4CC600BDFFAA /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097B8E6C272B4CC600BDFFAA /* ViewExtensions.swift */; };
 		097B8E6F272B6EDB00BDFFAA /* DiscoverContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097B8E6E272B6EDB00BDFFAA /* DiscoverContentView.swift */; };
@@ -53,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		090FED652734D91600446883 /* LocationContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationContentView.swift; sourceTree = "<group>"; };
 		097B8E68272B4C7000BDFFAA /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
 		097B8E6C272B4CC600BDFFAA /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		097B8E6E272B6EDB00BDFFAA /* DiscoverContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverContentView.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				097B8E6E272B6EDB00BDFFAA /* DiscoverContentView.swift */,
 				09F44B3A272CC7DB003022FA /* DiscoverPeopleCardContentView.swift */,
 				09B10328272DF31C008A9CA4 /* FilterPeopleContentView.swift */,
+				090FED652734D91600446883 /* LocationContentView.swift */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 				09C302D3272A4E0300A2A54E /* SignupContentView.swift in Sources */,
 				097B8E6D272B4CC600BDFFAA /* ViewExtensions.swift in Sources */,
 				09C302CF272A4D9600A2A54E /* OnBoardingContentView3.swift in Sources */,
+				090FED662734D91600446883 /* LocationContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

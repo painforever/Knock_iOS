@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Knock would like to know your Geo location to better find you best matching people.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -46,9 +48,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    <key>NSLocationAlwaysUsageDescription</key>
-    <string>Knock would like to know your Geo location.</string>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>Knock would like to know your Geo location to better serve you.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Knock would like to know your Geo location.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Knock would like to know your Geo location to better serve you.</string>
 </dict>
 </plist>
