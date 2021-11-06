@@ -45,7 +45,7 @@ struct FilterPeopleContentView: View {
                     HStack {
                         Text("Price (per hour)")
                         Spacer()
-                        Text("$0.00 - $90.00")
+                        Text("$0.00 - $\(Int(price)).00")
                     }
                     HStack {
                         Button(action: {
@@ -59,7 +59,7 @@ struct FilterPeopleContentView: View {
                         }, label: {
                             Text("Range")
                         })
-                        Slider(value: $price, in: 0...10000, onEditingChanged: {_ in })
+                        Slider(value: $price, in: 0...10000, onEditingChanged: {_ in }).accentColor(.white)
                     }
                 }
                 .foregroundColor(.white)
