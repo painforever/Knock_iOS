@@ -11,6 +11,7 @@ struct FilterPeopleContentView: View {
     @State var price = 10.00
     @State var showMap: Bool = false
     @Environment(\.presentationMode) var presentationMode
+    @StateObject var locationManager = LocationManager()
     
     var body: some View {
         ZStack {
@@ -19,7 +20,7 @@ struct FilterPeopleContentView: View {
                 HStack {
                     Text("Location")
                     Spacer()
-                    Text("1600 S Joyce St, Arlington, VA")
+                    Text(self.locationManager.address)
                     if self.showMap {
                         Image(systemName: "arrowtriangle.down.fill").font(.system(size: 16, weight: .regular))
                     }
@@ -36,7 +37,7 @@ struct FilterPeopleContentView: View {
                     }
                 }
                 if self.showMap {
-                    LocationContentView()
+                    LocationContentView(locationManager: self.locationManager)
                 }
                 
                 Divider().background(Color(.white))
@@ -94,6 +95,11 @@ struct FilterPeopleContentView: View {
                 }, label: {
                     Text("Filter").foregroundColor(.white).padding().overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 1)).foregroundColor(.white)
                 })
+            }
+        }
+        .onAppear {
+            self.locationManager.lookUpCurrentLocation { placemark in
+                
             }
         }
     }

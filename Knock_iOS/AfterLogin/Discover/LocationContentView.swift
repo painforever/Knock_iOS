@@ -20,7 +20,8 @@ extension LocationContentView {
 struct LocationContentView: View {
     
     @State var locationText: String = ""
-    @StateObject var locationManager = LocationManager()
+    //@StateObject var locationManager = LocationManager()
+    @ObservedObject var locationManager: LocationManager
     
     @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: Self.defaultLat, longitude: Self.defaultLon), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
     var places: [Location] = [
@@ -47,6 +48,7 @@ struct LocationContentView: View {
                 }.accentColor(Color(.systemPink))
                 .frame(width: 400, height: 300)
                 .cornerRadius(10)
+                
                 Map(coordinateRegion: $region, showsUserLocation: true, userTrackingMode: .constant(.follow))
                     .accentColor(Color(.systemPink))
                     .frame(width: 400, height: 300)
@@ -63,6 +65,6 @@ struct LocationContentView: View {
 
 struct LocationContentView_Previews: PreviewProvider {
     static var previews: some View {
-        LocationContentView()
+        LocationContentView(locationManager: LocationManager())
     }
 }
