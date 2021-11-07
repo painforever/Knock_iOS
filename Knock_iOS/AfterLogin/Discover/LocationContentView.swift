@@ -18,8 +18,6 @@ extension LocationContentView {
 }
 
 struct LocationContentView: View {
-    
-    @State var locationText: String = ""
     //@StateObject var locationManager = LocationManager()
     @ObservedObject var locationManager: LocationManager
     
@@ -30,7 +28,7 @@ struct LocationContentView: View {
     var body: some View {
         VStack {
             HStack {
-                TextField("Enter you location..", text: self.$locationText)
+                TextField("Enter you location..", text: self.$locationManager.queryFragment)
                     .padding()
                     .overlay(RoundedRectangle(cornerRadius: 10)
                     .stroke(Color(.white), lineWidth: 2))
@@ -42,24 +40,42 @@ struct LocationContentView: View {
                 })
             }.padding()
             
-            ScrollView {
-                Map(coordinateRegion: $region, annotationItems: places) { place in
-                    MapPin(coordinate: place.coordinate)
-                }.accentColor(Color(.systemPink))
-                .frame(width: 400, height: 300)
-                .cornerRadius(10)
-                
-                Map(coordinateRegion: $region, showsUserLocation: true, userTrackingMode: .constant(.follow))
-                    .accentColor(Color(.systemPink))
-                    .frame(width: 400, height: 300)
-                    .cornerRadius(10)
-                    .onAppear {
-                        self.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: self.locationManager.lastLocation?.coordinate.latitude ?? Self.defaultLat, longitude: self.locationManager.lastLocation?.coordinate.longitude ?? Self.defaultLon), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+            // Address autocomplete
+            if locationManager.status == .result {
+                List {
+                    Group { () -> AnyView in
+                        switch locationManager.status {
+                        case .noResults: return AnyView(Text("No Results"))
+                        case .error(let description): return AnyView(Text("Error: \(description)"))
+                        default: return AnyView(EmptyView())
+                        }
+                    }.foregroundColor(Color.gray)
+                    ForEach(locationManager.searchResults, id: \.self) { completionResult in
+                        // This simply lists the results, use a button in case you'd like to perform an action or use a NavigationLink to move to the next view upon selection.
+                        Text(completionResult.title)
                     }
+                }
             }
             
+            //Actual maps
+            if locationManager.status == .noResults || locationManager.status == .idle {
+                ScrollView {
+                    Map(coordinateRegion: $region, annotationItems: places) { place in
+                        MapPin(coordinate: place.coordinate)
+                    }.accentColor(Color(.systemPink))
+                    .frame(width: 400, height: 300)
+                    .cornerRadius(10)
+                    
+                    Map(coordinateRegion: $region, showsUserLocation: true, userTrackingMode: .constant(.follow))
+                        .accentColor(Color(.systemPink))
+                        .frame(width: 400, height: 300)
+                        .cornerRadius(10)
+                        .onAppear {
+                            self.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: self.locationManager.lastLocation?.coordinate.latitude ?? Self.defaultLat, longitude: self.locationManager.lastLocation?.coordinate.longitude ?? Self.defaultLon), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+                        }
+                }
+            }
         }
-        
     }
 }
 
