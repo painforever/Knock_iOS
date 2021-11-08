@@ -66,6 +66,7 @@ struct LocationContentView: View {
                     .frame(width: 400, height: 300)
                     .cornerRadius(10)
                     
+                    
                     Map(coordinateRegion: $region, showsUserLocation: true, userTrackingMode: .constant(.follow))
                         .accentColor(Color(.systemPink))
                         .frame(width: 400, height: 300)

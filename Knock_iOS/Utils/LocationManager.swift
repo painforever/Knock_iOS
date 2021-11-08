@@ -75,6 +75,7 @@ class LocationManager: NSObject, ObservableObject {
     //get address by geo coordinates
     func lookUpCurrentLocation(completionHandler: @escaping (CLPlacemark?) -> Void ) {
         // Use the last reported location.
+        
         if let lastLocation = self.locationManager.location {
             let geocoder = CLGeocoder()
                 
@@ -112,7 +113,7 @@ extension LocationManager: CLLocationManagerDelegate {
         guard let location = locations.last else { return }
         lastLocation = location
         print("DEBUG: just got the last location!")
-        print(#function, location)
+        print(#function, lastLocation)
     }
 }
 

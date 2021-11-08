@@ -14,15 +14,15 @@ struct TabbarContentView: View {
                 Image(systemName: "magnifyingglass.circle").font(.system(size: 50, weight: .regular))
             }
             
-            Text("").tabItem {
+            InboxContentView().tabItem {
                 Image(systemName: "envelope").font(.system(size: 50, weight: .regular))
             }
             
-            Text("").tabItem {
+            CalendarContentView().tabItem {
                 Image(systemName: "calendar").font(.system(size: 50, weight: .regular))
             }
             
-            Text("").tabItem {
+            AccountContentView().tabItem {
                 Image(systemName: "person").font(.system(size: 50, weight: .regular))
             }
         }
