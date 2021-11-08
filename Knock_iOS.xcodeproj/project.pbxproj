@@ -10,11 +10,13 @@
 		090AAFAC2738B21C00804650 /* MessageCardContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090AAFAB2738B21C00804650 /* MessageCardContentView.swift */; };
 		090AAFAE2738B35E00804650 /* ConversationContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090AAFAD2738B35E00804650 /* ConversationContentView.swift */; };
 		090FED662734D91600446883 /* LocationContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090FED652734D91600446883 /* LocationContentView.swift */; };
+		091124CF2739817400E90F44 /* CustomDatePickerContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091124CE2739817400E90F44 /* CustomDatePickerContentView.swift */; };
 		097B8E69272B4C7000BDFFAA /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097B8E68272B4C7000BDFFAA /* Validators.swift */; };
 		097B8E6D272B4CC600BDFFAA /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097B8E6C272B4CC600BDFFAA /* ViewExtensions.swift */; };
 		097B8E6F272B6EDB00BDFFAA /* DiscoverContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097B8E6E272B6EDB00BDFFAA /* DiscoverContentView.swift */; };
 		09B10327272DEE2F008A9CA4 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B10326272DEE2F008A9CA4 /* LocationManager.swift */; };
 		09B10329272DF31C008A9CA4 /* FilterPeopleContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B10328272DF31C008A9CA4 /* FilterPeopleContentView.swift */; };
+		09C04F3427398688005E71A6 /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C04F3327398688005E71A6 /* DateValue.swift */; };
 		09C30294272A23A300A2A54E /* Knock_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C30293272A23A300A2A54E /* Knock_iOSApp.swift */; };
 		09C30298272A23A600A2A54E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09C30297272A23A600A2A54E /* Assets.xcassets */; };
 		09C3029B272A23A600A2A54E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09C3029A272A23A600A2A54E /* Preview Assets.xcassets */; };
@@ -64,11 +66,13 @@
 		090AAFAB2738B21C00804650 /* MessageCardContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCardContentView.swift; sourceTree = "<group>"; };
 		090AAFAD2738B35E00804650 /* ConversationContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationContentView.swift; sourceTree = "<group>"; };
 		090FED652734D91600446883 /* LocationContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationContentView.swift; sourceTree = "<group>"; };
+		091124CE2739817400E90F44 /* CustomDatePickerContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerContentView.swift; sourceTree = "<group>"; };
 		097B8E68272B4C7000BDFFAA /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
 		097B8E6C272B4CC600BDFFAA /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		097B8E6E272B6EDB00BDFFAA /* DiscoverContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverContentView.swift; sourceTree = "<group>"; };
 		09B10326272DEE2F008A9CA4 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		09B10328272DF31C008A9CA4 /* FilterPeopleContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPeopleContentView.swift; sourceTree = "<group>"; };
+		09C04F3327398688005E71A6 /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
 		09C30290272A23A300A2A54E /* Knock_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Knock_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09C30293272A23A300A2A54E /* Knock_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Knock_iOSApp.swift; sourceTree = "<group>"; };
 		09C30297272A23A600A2A54E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -279,6 +283,8 @@
 			isa = PBXGroup;
 			children = (
 				09ECFD5A2738A891002D49FE /* CalendarContentView.swift */,
+				091124CE2739817400E90F44 /* CustomDatePickerContentView.swift */,
+				09C04F3327398688005E71A6 /* DateValue.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -571,6 +577,7 @@
 				09F44B3B272CC7DB003022FA /* DiscoverPeopleCardContentView.swift in Sources */,
 				09C302D8272A523F00A2A54E /* OnBoardingFooterContentView.swift in Sources */,
 				09B10329272DF31C008A9CA4 /* FilterPeopleContentView.swift in Sources */,
+				09C04F3427398688005E71A6 /* DateValue.swift in Sources */,
 				09C302C9272A4C9000A2A54E /* Constants.swift in Sources */,
 				09ECFD5527389B0E002D49FE /* AccountContentView.swift in Sources */,
 				09B10327272DEE2F008A9CA4 /* LocationManager.swift in Sources */,
@@ -581,6 +588,7 @@
 				09C302D1272A4DF300A2A54E /* LoginContentView.swift in Sources */,
 				090AAFAE2738B35E00804650 /* ConversationContentView.swift in Sources */,
 				09C302CD272A4D7F00A2A54E /* OnBoardingContentView2.swift in Sources */,
+				091124CF2739817400E90F44 /* CustomDatePickerContentView.swift in Sources */,
 				09C302D3272A4E0300A2A54E /* SignupContentView.swift in Sources */,
 				097B8E6D272B4CC600BDFFAA /* ViewExtensions.swift in Sources */,
 				09C302CF272A4D9600A2A54E /* OnBoardingContentView3.swift in Sources */,

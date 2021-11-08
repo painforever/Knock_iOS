@@ -19,16 +19,26 @@ struct DiscoverPeopleCardContentView: View {
         VStack {
             HStack {
                 AnimatedImage(url: URL(string: "https://st3.depositphotos.com/1007566/13175/v/600/depositphotos_131750410-stock-illustration-woman-female-avatar-character.jpg")).resizable().aspectRatio(contentMode: .fit).frame(width: 100, height: 100)
+                    .overlay(RoundedRectangle(cornerRadius: 50).stroke(Color(.lightGray), lineWidth: 1))
                     .cornerRadius(50)
                     .padding(.horizontal, 20)
                     .padding()
                 Spacer()
+                
                 VStack {
-                    Text("$52/hr").foregroundColor(.white)
+                    Text("Reading").themeDNA()
+                    Text("Finance").themeDNA()
+                    Text("Weapon").themeDNA()
+                }
+                
+                Spacer()
+                VStack {
+                    Text("$52/hr").foregroundColor(Color(Constants.themeColor))
                     Image("get_in_touch").resizable().frame(width: 30, height: 30).foregroundColor(.white)
                 }
                 .padding(.horizontal, 20)
-            }.background(Color(Constants.themeColor))
+            }
+            Divider()
             
             
             HStack {
@@ -46,6 +56,7 @@ struct DiscoverPeopleCardContentView: View {
             .frame(width: cardWidth, height: 100)
             .background(Color.white)
         }
+        .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color(Constants.themeColor), lineWidth: 5))
         .cornerRadius(10)
     }
 }
