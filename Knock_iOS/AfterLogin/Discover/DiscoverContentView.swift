@@ -41,12 +41,7 @@ struct DiscoverContentView: View {
                         DiscoverPeopleCardContentView(bgImage: .constant(Constants.discoverPeopleCard1), username: .constant("painforever"))
                     }
                 }
-//                ForEach(0..<5) { card in
-//                    DiscoverPeopleCardContentView(bgImage: .constant(Constants.discoverPeopleCard1), username: .constant("painforever"))
-//                }
-                
             }
-            
         }
     }
 }
