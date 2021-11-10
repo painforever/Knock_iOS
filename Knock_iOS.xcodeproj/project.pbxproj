@@ -16,6 +16,7 @@
 		097B8E6F272B6EDB00BDFFAA /* DiscoverContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097B8E6E272B6EDB00BDFFAA /* DiscoverContentView.swift */; };
 		09B10327272DEE2F008A9CA4 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B10326272DEE2F008A9CA4 /* LocationManager.swift */; };
 		09B10329272DF31C008A9CA4 /* FilterPeopleContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B10328272DF31C008A9CA4 /* FilterPeopleContentView.swift */; };
+		09B53BE3273C5A69005FE806 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B53BE2273C5A69005FE806 /* Task.swift */; };
 		09C04F3427398688005E71A6 /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C04F3327398688005E71A6 /* DateValue.swift */; };
 		09C30294272A23A300A2A54E /* Knock_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C30293272A23A300A2A54E /* Knock_iOSApp.swift */; };
 		09C30298272A23A600A2A54E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09C30297272A23A600A2A54E /* Assets.xcassets */; };
@@ -72,6 +73,7 @@
 		097B8E6E272B6EDB00BDFFAA /* DiscoverContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverContentView.swift; sourceTree = "<group>"; };
 		09B10326272DEE2F008A9CA4 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		09B10328272DF31C008A9CA4 /* FilterPeopleContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPeopleContentView.swift; sourceTree = "<group>"; };
+		09B53BE2273C5A69005FE806 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		09C04F3327398688005E71A6 /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
 		09C30290272A23A300A2A54E /* Knock_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Knock_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09C30293272A23A300A2A54E /* Knock_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Knock_iOSApp.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 				09ECFD5A2738A891002D49FE /* CalendarContentView.swift */,
 				091124CE2739817400E90F44 /* CustomDatePickerContentView.swift */,
 				09C04F3327398688005E71A6 /* DateValue.swift */,
+				09B53BE2273C5A69005FE806 /* Task.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -586,6 +589,7 @@
 				097B8E6F272B6EDB00BDFFAA /* DiscoverContentView.swift in Sources */,
 				09C30294272A23A300A2A54E /* Knock_iOSApp.swift in Sources */,
 				09C302D1272A4DF300A2A54E /* LoginContentView.swift in Sources */,
+				09B53BE3273C5A69005FE806 /* Task.swift in Sources */,
 				090AAFAE2738B35E00804650 /* ConversationContentView.swift in Sources */,
 				09C302CD272A4D7F00A2A54E /* OnBoardingContentView2.swift in Sources */,
 				091124CF2739817400E90F44 /* CustomDatePickerContentView.swift in Sources */,
