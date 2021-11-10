@@ -17,6 +17,9 @@ struct CalendarContentView: View {
                 VStack(spacing: 20) {
                     CustomDatePickerContentView(currentDate: $currentDate)
                 }
+                .padding(.vertical)
+            }.safeAreaInset(edge: .bottom) {
+                
             }
         }
     }
