@@ -18,8 +18,6 @@ struct CalendarContentView: View {
                     CustomDatePickerContentView(currentDate: $currentDate)
                 }
                 .padding(.vertical)
-            }.safeAreaInset(edge: .bottom) {
-                
             }
         }
     }

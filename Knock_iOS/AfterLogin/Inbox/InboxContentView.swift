@@ -12,7 +12,7 @@ struct InboxContentView: View {
         NavigationView {
             List {
                 ForEach(0..<10) { i in
-                    MessageCardContentView().background(NavigationLink(destination: ConversationContentView()){})
+                    MessageCardContentView(isTopic: .constant(true)).background(NavigationLink(destination: ConversationContentView()){})
                 }
             }.navigationBarTitle(Text("Inbox"), displayMode: .large)
         }

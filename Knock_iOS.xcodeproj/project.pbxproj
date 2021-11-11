@@ -41,6 +41,7 @@
 		09ECFD5B2738A891002D49FE /* CalendarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ECFD5A2738A891002D49FE /* CalendarContentView.swift */; };
 		09ECFD5E2738AFC7002D49FE /* InboxContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ECFD5D2738AFC7002D49FE /* InboxContentView.swift */; };
 		09F44B3B272CC7DB003022FA /* DiscoverPeopleCardContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F44B3A272CC7DB003022FA /* DiscoverPeopleCardContentView.swift */; };
+		09FE986B273C9B40004AEAB3 /* PopupInputContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FE986A273C9B40004AEAB3 /* PopupInputContentView.swift */; };
 		9E4558E10DA000924C4C3372 /* Pods_Knock_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C42B10698BECE5197640AD2 /* Pods_Knock_iOS.framework */; };
 		A8C5ED2FB6A2D3700F6F0EC2 /* Pods_Knock_iOS_Knock_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B9C59DE1448CBC2D1BECCFC /* Pods_Knock_iOS_Knock_iOSUITests.framework */; };
 		B3A44B90A1CC0D4C109DB8E3 /* Pods_Knock_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D51DBD50A269940FD9714349 /* Pods_Knock_iOSTests.framework */; };
@@ -104,6 +105,7 @@
 		09ECFD5A2738A891002D49FE /* CalendarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarContentView.swift; sourceTree = "<group>"; };
 		09ECFD5D2738AFC7002D49FE /* InboxContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxContentView.swift; sourceTree = "<group>"; };
 		09F44B3A272CC7DB003022FA /* DiscoverPeopleCardContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverPeopleCardContentView.swift; sourceTree = "<group>"; };
+		09FE986A273C9B40004AEAB3 /* PopupInputContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupInputContentView.swift; sourceTree = "<group>"; };
 		1A48CD9E11C4F7F2DEEDB2AF /* Pods-Knock_iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Knock_iOSTests.release.xcconfig"; path = "Target Support Files/Pods-Knock_iOSTests/Pods-Knock_iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		33B76A71F4EACDD9961C37DA /* Pods-Knock_iOS-Knock_iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Knock_iOS-Knock_iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-Knock_iOS-Knock_iOSUITests/Pods-Knock_iOS-Knock_iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4C42B10698BECE5197640AD2 /* Pods_Knock_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Knock_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -298,6 +300,7 @@
 				09ECFD5D2738AFC7002D49FE /* InboxContentView.swift */,
 				090AAFAB2738B21C00804650 /* MessageCardContentView.swift */,
 				090AAFAD2738B35E00804650 /* ConversationContentView.swift */,
+				09FE986A273C9B40004AEAB3 /* PopupInputContentView.swift */,
 			);
 			path = Inbox;
 			sourceTree = "<group>";
@@ -581,6 +584,7 @@
 				09C302D8272A523F00A2A54E /* OnBoardingFooterContentView.swift in Sources */,
 				09B10329272DF31C008A9CA4 /* FilterPeopleContentView.swift in Sources */,
 				09C04F3427398688005E71A6 /* DateValue.swift in Sources */,
+				09FE986B273C9B40004AEAB3 /* PopupInputContentView.swift in Sources */,
 				09C302C9272A4C9000A2A54E /* Constants.swift in Sources */,
 				09ECFD5527389B0E002D49FE /* AccountContentView.swift in Sources */,
 				09B10327272DEE2F008A9CA4 /* LocationManager.swift in Sources */,
