@@ -11,7 +11,7 @@ struct FilterPeopleContentView: View {
     @State var price = 10.00
     @State var showMap: Bool = false
     @Environment(\.presentationMode) var presentationMode
-    @StateObject var locationManager = LocationManager()
+    @ObservedObject var locationManager: LocationManager
     
     var body: some View {
         ZStack {
@@ -107,6 +107,6 @@ struct FilterPeopleContentView: View {
 
 struct FilterPeopleContentView_Previews: PreviewProvider {
     static var previews: some View {
-        FilterPeopleContentView()
+        FilterPeopleContentView(locationManager: LocationManager())
     }
 }

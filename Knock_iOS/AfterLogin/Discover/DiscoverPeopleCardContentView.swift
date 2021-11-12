@@ -42,21 +42,19 @@ struct DiscoverPeopleCardContentView: View {
             
             Divider()
             
-            GeometryReader { g in
-                HStack {
-                    VStack {
-                        Text(self.username).bold().font(.system(size: 30))
-                        Text("Stock Broker")
-                    }
-                    Spacer()
-                    VStack {
-                        Text("6 mi away")
-                        Text("Arlington")
-                    }
+            HStack {
+                VStack {
+                    Text(self.username).bold().font(.system(size: 30))
+                    Text("Stock Broker")
                 }
-                .padding(.horizontal, 20)
-                .background(Color.white)
+                Spacer()
+                VStack {
+                    Text("6 mi away")
+                    Text("Arlington")
+                }
             }
+            .padding(.horizontal, 20)
+            .background(Color.white)
         }
         .frame(height: cardHeight)
         .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color(Constants.themeColor), lineWidth: 5))
