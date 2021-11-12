@@ -38,6 +38,7 @@ class LocationManager: NSObject, ObservableObject {
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
+        
         //For address autocomplete
         searchCompleter = MKLocalSearchCompleter()
         searchCompleter.delegate = self

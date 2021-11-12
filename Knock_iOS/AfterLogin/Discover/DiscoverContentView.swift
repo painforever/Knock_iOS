@@ -8,11 +8,17 @@
 import SwiftUI
 import Alamofire
 
+extension DiscoverContentView {
+    class DiscoverViewModel: ObservableObject {
+        @Published var data: [Person] = []
+    }
+}
+
 struct DiscoverContentView: View {
     @State var searchTerm: String = ""
     @State var showFilterPeopleContentView = false
     @StateObject var locationManager = LocationManager()
-    @State var data: [Person] = []
+    @ObservedObject var viewModel = DiscoverViewModel()
     
     var body: some View {
         ZStack {
@@ -46,12 +52,9 @@ struct DiscoverContentView: View {
                     }
                 }.frame(maxWidth: .infinity)
             }
-        }.onAppear {
-            if let user_id = UserDefaults.standard.string(forKey: Constants.userId) {
-                self.locationManager.lookUpCurrentLocation { placemark in
-                    print("DEBUG: \(placemark)")
-                }
-                AF.request("\(Constants.BaseUrl)/discovers/index", method: .get, parameters: ["user_id": user_id, "lat": self.locationManager.lastLocation?.coordinate.latitude, "lon": self.locationManager.lastLocation?.coordinate.longitude]).responseData { data in
+        }.onChange(of: self.locationManager.lastLocation) { newValue in
+            if let user_id = UserDefaults.standard.string(forKey: Constants.userId), let lat = self.locationManager.lastLocation?.coordinate.latitude, let lon = self.locationManager.lastLocation?.coordinate.longitude {
+                AF.request("\(Constants.BaseUrl)/discovers/index", method: .get, parameters: ["user_id": user_id, "lat": lat, "lon": lon]).responseData { data in
                     
                 }
             }
