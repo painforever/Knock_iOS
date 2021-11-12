@@ -13,7 +13,7 @@ struct DiscoverPeopleCardContentView: View {
     @Binding var bgImage: String
     @Binding var username: String
     let cardHeight: CGFloat = 250
-    let cardWidth: CGFloat = UIScreen.main.bounds.width - 30
+    let cardWidth: CGFloat = UIScreen.main.bounds.width
     
     var body: some View {
         VStack {
@@ -32,30 +32,33 @@ struct DiscoverPeopleCardContentView: View {
                 }
                 
                 Spacer()
+                
                 VStack {
                     Text("$52/hr").foregroundColor(Color(Constants.themeColor))
                     Image("get_in_touch").resizable().frame(width: 30, height: 30).foregroundColor(.white)
                 }
                 .padding(.horizontal, 20)
             }
+            
             Divider()
             
-            
-            HStack {
-                VStack {
-                    Text(self.username).bold().font(.system(size: 30))
-                    Text("Stock Broker")
+            GeometryReader { g in
+                HStack {
+                    VStack {
+                        Text(self.username).bold().font(.system(size: 30))
+                        Text("Stock Broker")
+                    }
+                    Spacer()
+                    VStack {
+                        Text("6 mi away")
+                        Text("Arlington")
+                    }
                 }
-                Spacer()
-                VStack {
-                    Text("6 mi away")
-                    Text("Arlington")
-                }
+                .padding(.horizontal, 20)
+                .background(Color.white)
             }
-            .padding(.horizontal, 20)
-            .frame(width: cardWidth, height: 100)
-            .background(Color.white)
         }
+        .frame(height: cardHeight)
         .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color(Constants.themeColor), lineWidth: 5))
         .cornerRadius(10)
     }

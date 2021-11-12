@@ -39,8 +39,9 @@ struct DiscoverContentView: View {
                 List {
                     ForEach(0..<5) { card in
                         DiscoverPeopleCardContentView(bgImage: .constant(Constants.discoverPeopleCard1), username: .constant("painforever"))
+                        
                     }
-                }
+                }.frame(maxWidth: .infinity)
             }
         }
     }
