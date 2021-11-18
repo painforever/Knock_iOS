@@ -9,9 +9,8 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct DiscoverPeopleCardContentView: View {
-    
+    @Binding var person: Person
     @Binding var bgImage: String
-    @Binding var username: String
     let cardHeight: CGFloat = 250
     let cardWidth: CGFloat = UIScreen.main.bounds.width
     
@@ -24,33 +23,31 @@ struct DiscoverPeopleCardContentView: View {
                     .padding(.horizontal, 20)
                     .padding()
                 Spacer()
-                
                 VStack {
-                    Text("Reading").themeDNA()
-                    Text("Finance").themeDNA()
-                    Text("Weapon").themeDNA()
+                    VStack {
+                        ForEach(displayDNAs(), id: \.self) {
+                            Text($0).themeDNA().padding(.horizontal, 10)
+                        }
+                    }
+                    HStack {
+                        Text("$\(person.price)/hr").foregroundColor(Color(Constants.themeColor))
+                        Image("get_in_touch").resizable().frame(width: 30, height: 30).foregroundColor(.white)
+                    }
+                    .padding(.horizontal, 20)
                 }
-                
-                Spacer()
-                
-                VStack {
-                    Text("$52/hr").foregroundColor(Color(Constants.themeColor))
-                    Image("get_in_touch").resizable().frame(width: 30, height: 30).foregroundColor(.white)
-                }
-                .padding(.horizontal, 20)
             }
             
             Divider()
             
             HStack {
                 VStack {
-                    Text(self.username).bold().font(.system(size: 30))
-                    Text("Stock Broker")
+                    Text(person.username).bold().font(.system(size: 30))
+                    Text(person.occupation)
                 }
                 Spacer()
                 VStack {
-                    Text("6 mi away")
-                    Text("Arlington")
+                    Text("\(person.locationAcceptedDistance) mi away")
+                    Text(person.city)
                 }
             }
             .padding(.horizontal, 20)
@@ -60,10 +57,15 @@ struct DiscoverPeopleCardContentView: View {
         .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color(Constants.themeColor), lineWidth: 5))
         .cornerRadius(10)
     }
+    
+    func displayDNAs() -> [String] {
+        var dnas = person.dnas.components(separatedBy: ",")
+        return Array(dnas.prefix(3))
+    }
 }
 
 struct DiscoverPeopleCardContentView_Previews: PreviewProvider {
     static var previews: some View {
-        DiscoverPeopleCardContentView(bgImage: .constant(Constants.discoverPeopleCard1), username: .constant("painforever"))
+        DiscoverPeopleCardContentView(person: .constant(Person(username: "Painforever", city: "Arlington", price: "34.88", occupation: "Poker in Carousel", locationAcceptedDistance: "4.7", dnas: "Sports, Games")), bgImage: .constant(Constants.discoverPeopleCard1))
     }
 }

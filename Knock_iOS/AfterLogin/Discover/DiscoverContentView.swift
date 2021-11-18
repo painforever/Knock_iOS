@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Alamofire
+import SwiftyJSON
 
 extension DiscoverContentView {
     class DiscoverViewModel: ObservableObject {
@@ -46,16 +47,35 @@ struct DiscoverContentView: View {
                 }
                 
                 List {
-                    ForEach(0..<5) { card in
-                        DiscoverPeopleCardContentView(bgImage: .constant(Constants.discoverPeopleCard1), username: .constant("painforever"))
+                    ForEach(self.$viewModel.data) { user in
+                        DiscoverPeopleCardContentView(person: user, bgImage: .constant(Constants.discoverPeopleCard1))
                         
                     }
-                }.frame(maxWidth: .infinity)
+                }
+                .frame(width: UIScreen.main.bounds.size.width, alignment: .center)
+                .listRowInsets(.init())
+                .listStyle(PlainListStyle())
+                //.frame(maxWidth: .infinity)
             }
         }.onChange(of: self.locationManager.lastLocation) { newValue in
-            if let user_id = UserDefaults.standard.string(forKey: Constants.userId), let lat = self.locationManager.lastLocation?.coordinate.latitude, let lon = self.locationManager.lastLocation?.coordinate.longitude {
-                AF.request("\(Constants.BaseUrl)/discovers/index", method: .get, parameters: ["user_id": user_id, "lat": lat, "lon": lon]).responseData { data in
+            loadData()
+        }.onAppear {
+            //UserDefaults.standard.removeObject(forKey: Constants.userId)
+            loadData()
+        }
+    }
+    
+    func loadData() {
+        if let user_id = UserDefaults.standard.string(forKey: Constants.userId), let lat = self.locationManager.lastLocation?.coordinate.latitude, let lon = self.locationManager.lastLocation?.coordinate.longitude {
+            AF.request("\(Constants.BaseUrl)/discovers/index", method: .get, parameters: ["user_id": user_id, "lat": lat, "lon": lon]).responseData { data in
+                let json = try! JSON(data: data.data!)
+                viewModel.data = []
+                for user in json {
+                    let userValue = user.1["user"].dictionaryValue
+                    let distanceValue = user.1["distance"].stringValue
+                    let dnas = user.1["dnas"].arrayValue.map { $0.stringValue }
                     
+                    self.viewModel.data.append(Person(username: userValue["username"]!.stringValue, city: userValue["city"]!.stringValue, price: userValue["meeting_rate"]!.stringValue, occupation: userValue["occupation"]!.stringValue, locationAcceptedDistance: distanceValue, dnas: dnas.joined(separator: ",")))
                 }
             }
         }
