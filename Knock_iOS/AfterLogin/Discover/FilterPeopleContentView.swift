@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct FilterPeopleContentView: View {
-    @State var price = 10.00
     @State var showMap: Bool = false
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var locationManager: LocationManager
+    @StateObject var filterPeopleViewModel: FilterPeopleViewModel = FilterPeopleViewModel()
     
     var body: some View {
         ZStack {
@@ -37,7 +37,7 @@ struct FilterPeopleContentView: View {
                     }
                 }
                 if self.showMap {
-                    LocationContentView(locationManager: self.locationManager)
+                    LocationContentView(locationManager: self.locationManager, filterPeopleViewModel: filterPeopleViewModel)
                 }
                 
                 Divider().background(Color(.white))
@@ -46,11 +46,11 @@ struct FilterPeopleContentView: View {
                     HStack {
                         Text("Price (per hour)")
                         Spacer()
-                        Text("$0.00 - $\(Int(price)).00")
+                        Text("$0.00 - $\(Int(self.filterPeopleViewModel.price)).00")
                     }
                     HStack {
                         Button(action: {
-                            
+                            self.filterPeopleViewModel.price = 0
                         }, label: {
                             Text("Free")
                         })
@@ -60,7 +60,7 @@ struct FilterPeopleContentView: View {
                         }, label: {
                             Text("Range")
                         })
-                        Slider(value: $price, in: 0...10000, onEditingChanged: {_ in }).accentColor(.white)
+                        Slider(value: self.$filterPeopleViewModel.price, in: 0...10000, onEditingChanged: {_ in }).accentColor(.white)
                     }
                 }
                 .foregroundColor(.white)
@@ -78,14 +78,20 @@ struct FilterPeopleContentView: View {
                         VStack {
                             Image(systemName: "phone.fill").font(.system(size: 16, weight: .regular))
                             Text("Phone")
+                        }.onTapGesture {
+                            self.filterPeopleViewModel.meetingMethod = "phone"
                         }
                         VStack {
                             Image(systemName: "video.fill").font(.system(size: 16, weight: .regular))
                             Text("Video")
+                        }.onTapGesture {
+                            self.filterPeopleViewModel.meetingMethod = "video"
                         }
                         VStack {
                             Image(systemName: "person.fill").font(.system(size: 16, weight: .regular))
                             Text("In-Person")
+                        }.onTapGesture {
+                            self.filterPeopleViewModel.meetingMethod = "in-person"
                         }
                     }
                 }.foregroundColor(.white)

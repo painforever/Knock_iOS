@@ -25,9 +25,7 @@ struct DiscoverPeopleCardContentView: View {
                 Spacer()
                 VStack {
                     VStack {
-                        ForEach(displayDNAs(), id: \.self) {
-                            Text($0).themeDNA().padding(.horizontal, 10)
-                        }
+                        displayDNAs()
                     }
                     HStack {
                         Text("$\(person.price)/hr").foregroundColor(Color(Constants.themeColor))
@@ -58,9 +56,12 @@ struct DiscoverPeopleCardContentView: View {
         .cornerRadius(10)
     }
     
-    func displayDNAs() -> [String] {
+    func displayDNAs() -> some View {
         var dnas = person.dnas.components(separatedBy: ",")
-        return Array(dnas.prefix(3))
+        dnas = Array(dnas.prefix(3))
+        return ForEach(dnas, id: \.self) {
+            Text($0).themeDNA().padding(.horizontal, 10)
+        }
     }
 }
 

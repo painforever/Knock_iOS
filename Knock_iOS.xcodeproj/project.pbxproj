@@ -36,6 +36,7 @@
 		09C302D3272A4E0300A2A54E /* SignupContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C302D2272A4E0300A2A54E /* SignupContentView.swift */; };
 		09C302D6272A4F8300A2A54E /* TabbarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C302D5272A4F8300A2A54E /* TabbarContentView.swift */; };
 		09C302D8272A523F00A2A54E /* OnBoardingFooterContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C302D7272A523F00A2A54E /* OnBoardingFooterContentView.swift */; };
+		09C663F52746047600A2594E /* FilterPeopleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C663F42746047600A2594E /* FilterPeopleViewModel.swift */; };
 		09ECFD50273897A2002D49FE /* ThemeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ECFD4F273897A2002D49FE /* ThemeButton.swift */; };
 		09ECFD5227389891002D49FE /* ThemeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ECFD5127389891002D49FE /* ThemeTextField.swift */; };
 		09ECFD5527389B0E002D49FE /* AccountContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ECFD5427389B0E002D49FE /* AccountContentView.swift */; };
@@ -101,6 +102,7 @@
 		09C302D2272A4E0300A2A54E /* SignupContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupContentView.swift; sourceTree = "<group>"; };
 		09C302D5272A4F8300A2A54E /* TabbarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarContentView.swift; sourceTree = "<group>"; };
 		09C302D7272A523F00A2A54E /* OnBoardingFooterContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingFooterContentView.swift; sourceTree = "<group>"; };
+		09C663F42746047600A2594E /* FilterPeopleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPeopleViewModel.swift; sourceTree = "<group>"; };
 		09ECFD4F273897A2002D49FE /* ThemeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeButton.swift; sourceTree = "<group>"; };
 		09ECFD5127389891002D49FE /* ThemeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeTextField.swift; sourceTree = "<group>"; };
 		09ECFD5427389B0E002D49FE /* AccountContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountContentView.swift; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 				09F44B3A272CC7DB003022FA /* DiscoverPeopleCardContentView.swift */,
 				09B10328272DF31C008A9CA4 /* FilterPeopleContentView.swift */,
 				090FED652734D91600446883 /* LocationContentView.swift */,
+				09C663F42746047600A2594E /* FilterPeopleViewModel.swift */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -613,6 +616,7 @@
 				09C302CF272A4D9600A2A54E /* OnBoardingContentView3.swift in Sources */,
 				096B9D19273EC7CE004F51F5 /* Person.swift in Sources */,
 				090FED662734D91600446883 /* LocationContentView.swift in Sources */,
+				09C663F52746047600A2594E /* FilterPeopleViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

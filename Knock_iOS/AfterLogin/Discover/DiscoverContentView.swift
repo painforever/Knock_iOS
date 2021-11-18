@@ -19,7 +19,7 @@ struct DiscoverContentView: View {
     @State var searchTerm: String = ""
     @State var showFilterPeopleContentView = false
     @StateObject var locationManager = LocationManager()
-    @ObservedObject var viewModel = DiscoverViewModel()
+    @StateObject var viewModel = DiscoverViewModel()
     
     var body: some View {
         ZStack {
