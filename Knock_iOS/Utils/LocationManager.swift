@@ -20,7 +20,7 @@ class LocationManager: NSObject, ObservableObject {
     //For address autocomplete
     @Published var queryFragment: String = ""
     @Published private(set) var searchResults: [MKLocalSearchCompletion] = []
-    @Published private(set) var status: LocationStatus = .idle
+    @Published var status: LocationStatus = .idle
     private var queryCancellable: AnyCancellable?
     private var searchCompleter: MKLocalSearchCompleter!
     enum LocationStatus: Equatable {
@@ -102,6 +102,18 @@ class LocationManager: NSObject, ObservableObject {
             completionHandler(nil)
         }
     }
+    
+    func getLocation(from address: String, completion: @escaping (_ location: CLLocationCoordinate2D?)-> Void) {
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(address) { (placemarks, error) in
+            guard let placemarks = placemarks,
+            let location = placemarks.first?.location?.coordinate else {
+                completion(nil)
+                return
+            }
+            completion(location)
+        }
+    }
 }
 
 extension LocationManager: CLLocationManagerDelegate {
@@ -123,7 +135,7 @@ extension LocationManager: MKLocalSearchCompleterDelegate {
         // Depending on what you're searching, you might need to filter differently or
         // remove the filter altogether. Filtering for an empty Subtitle seems to filter
         // out a lot of places and only shows cities and countries.
-        self.searchResults = completer.results//.filter({ $0.subtitle != "" })
+        self.searchResults = completer.results //.filter({ $0.subtitle != "" })
         self.status = completer.results.isEmpty ? .noResults : .result
     }
     

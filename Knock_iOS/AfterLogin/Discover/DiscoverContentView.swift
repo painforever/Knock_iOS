@@ -20,6 +20,7 @@ struct DiscoverContentView: View {
     @State var showFilterPeopleContentView = false
     @StateObject var locationManager = LocationManager()
     @StateObject var viewModel = DiscoverViewModel()
+    @StateObject var filterPeopleViewModel: FilterPeopleViewModel = FilterPeopleViewModel()
     
     var body: some View {
         ZStack {
@@ -37,7 +38,7 @@ struct DiscoverContentView: View {
                     }, label: {
                         Image(systemName: "slider.horizontal.3").font(.system(size: 25, weight: .regular)).foregroundColor(.white)
                     }).sheet(isPresented: $showFilterPeopleContentView) {
-                        FilterPeopleContentView(locationManager: locationManager)
+                        FilterPeopleContentView(locationManager: locationManager, filterPeopleViewModel: filterPeopleViewModel)
                     }
                     Button(action: {
                         
@@ -67,6 +68,7 @@ struct DiscoverContentView: View {
     
     func loadData() {
         if let user_id = UserDefaults.standard.string(forKey: Constants.userId), let lat = self.locationManager.lastLocation?.coordinate.latitude, let lon = self.locationManager.lastLocation?.coordinate.longitude {
+            
             AF.request("\(Constants.BaseUrl)/discovers/index", method: .get, parameters: ["user_id": user_id, "lat": lat, "lon": lon]).responseData { data in
                 let json = try! JSON(data: data.data!)
                 viewModel.data = []

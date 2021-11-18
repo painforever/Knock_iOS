@@ -11,7 +11,7 @@ struct FilterPeopleContentView: View {
     @State var showMap: Bool = false
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var locationManager: LocationManager
-    @StateObject var filterPeopleViewModel: FilterPeopleViewModel = FilterPeopleViewModel()
+    @ObservedObject var filterPeopleViewModel: FilterPeopleViewModel
     
     var body: some View {
         ZStack {
@@ -20,7 +20,9 @@ struct FilterPeopleContentView: View {
                 HStack {
                     Text("Location")
                     Spacer()
-                    Text(self.locationManager.address)
+                    Text(filterPeopleViewModel.address).onAppear {
+                        filterPeopleViewModel.address = self.locationManager.address
+                    }
                     if self.showMap {
                         Image(systemName: "arrowtriangle.down.fill").font(.system(size: 16, weight: .regular))
                     }
@@ -102,10 +104,11 @@ struct FilterPeopleContentView: View {
                     Text("Filter").foregroundColor(.white).padding().overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 1)).foregroundColor(.white)
                 })
             }
-        }
-        .onAppear {
+        }.onAppear {
             self.locationManager.lookUpCurrentLocation { placemark in
-                
+                if let placemark = placemark, let street = placemark.name, let state = placemark.administrativeArea, let zipcode = placemark.postalCode {
+                    filterPeopleViewModel.address = "\(street), \(state) \(zipcode)"
+                }
             }
         }
     }
@@ -113,6 +116,6 @@ struct FilterPeopleContentView: View {
 
 struct FilterPeopleContentView_Previews: PreviewProvider {
     static var previews: some View {
-        FilterPeopleContentView(locationManager: LocationManager())
+        FilterPeopleContentView(locationManager: LocationManager(), filterPeopleViewModel: FilterPeopleViewModel())
     }
 }

@@ -24,7 +24,7 @@ struct LocationContentView: View {
     @State var searchClicked = false
     @ObservedObject var filterPeopleViewModel: FilterPeopleViewModel
     
-    var places: [Location] = [
+    @State var places: [Location] = [
         Location(coordinate: CLLocationCoordinate2D(latitude: defaultLat, longitude: defaultLon))
     ]
     
@@ -36,13 +36,13 @@ struct LocationContentView: View {
                     .overlay(RoundedRectangle(cornerRadius: 10)
                     .stroke(Color(.white), lineWidth: 2))
                     .foregroundColor(.white)
-                Button(action: {
-                    self.searchClicked = true
-                    self.filterPeopleViewModel.address = self.locationManager.queryFragment
-                    
-                }, label: {
-                    Text("Search").padding().background(Color(Constants.themeColor)).cornerRadius(10).foregroundColor(.white)
-                })
+//                Button(action: {
+//                    self.searchClicked = true
+//                    self.filterPeopleViewModel.address = self.locationManager.queryFragment
+//                    
+//                }, label: {
+//                    Text("Search").padding().background(Color(Constants.themeColor)).cornerRadius(10).foregroundColor(.white)
+//                })
             }.padding()
             
             // Address autocomplete
@@ -56,10 +56,23 @@ struct LocationContentView: View {
                         }
                     }.foregroundColor(Color.gray)
                     ForEach(locationManager.searchResults, id: \.self) { completionResult in
-                        // This simply lists the results, use a button in case you'd like to perform an action or use a NavigationLink to move to the next view upon selection.
+                        //Autocomplete for searching address, each address is clickable and let you choose, then get the lon/lat from the addess
                         Text(completionResult.title).onTapGesture {
+                            
                             self.searchClicked = true
+                            self.locationManager.status = .noResults
                             self.filterPeopleViewModel.address = completionResult.title
+                            
+                            self.locationManager.getLocation(from: self.filterPeopleViewModel.address) { location in
+                                if let location = location {
+                                    self.filterPeopleViewModel.lat = String(location.latitude)
+                                    self.filterPeopleViewModel.lon = String(location.longitude)
+                                    
+                                    //set the center of the map to user selected address
+                                    self.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+                                    self.places = [Location(coordinate: location)]
+                                }
+                            }
                         }
                         
                     }
@@ -82,6 +95,7 @@ struct LocationContentView: View {
                             .frame(width: 400, height: 300)
                             .cornerRadius(10)
                             .onAppear {
+                                //By default we set it to user's current location
                                 self.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: self.locationManager.lastLocation?.coordinate.latitude ?? Self.defaultLat, longitude: self.locationManager.lastLocation?.coordinate.longitude ?? Self.defaultLon), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
                             }
                     }
