@@ -13,7 +13,7 @@ struct ConversationContentView: View {
     var body: some View {
         List {
             ForEach(0..<10) { i in
-                MessageCardContentView(isTopic: .constant(false))
+                //MessageCardContentView(isTopic: .constant(false))
             }
         }
         .navigationBarTitle(Text("Conversation with Kunichi Kitajima"), displayMode: .large)
