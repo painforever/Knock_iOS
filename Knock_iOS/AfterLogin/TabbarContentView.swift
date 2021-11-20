@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct TabbarContentView: View {
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor.white
+    }
     var body: some View {
         TabView {
             DiscoverContentView().tabItem {

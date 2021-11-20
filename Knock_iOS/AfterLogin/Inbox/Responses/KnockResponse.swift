@@ -9,18 +9,20 @@ import Foundation
 
 struct KnockResponse: Codable, Identifiable, Hashable {
     let id: Int
+    var knockId: Int
     let userId: Int
     let knockType: String
     let subject: String
     let knockeeId: Int
-    let username: String
+    var username: String
     let sentAt: String
+    let firstMessage: String
     
-    enum CodingKeys: String, CodingKey {
-        case userId = "user_id"
-        case knockType = "knock_type"
-        case knockeeId = "knockee_id"
-        case sentAt = "sent_at"
-        case id, subject, username
-    }
+//    enum CodingKeys: String, CodingKey {
+//        case userId = "user_id"
+//        case knockType = "knock_type"
+//        case knockeeId = "knockee_id"
+//        case sentAt = "sent_at"
+//        case id, subject, username, firstMessage
+//    }
 }

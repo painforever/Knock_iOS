@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		090AAFAC2738B21C00804650 /* MessageCardContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090AAFAB2738B21C00804650 /* MessageCardContentView.swift */; };
+		090AAFAC2738B21C00804650 /* KnockCardContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090AAFAB2738B21C00804650 /* KnockCardContentView.swift */; };
 		090AAFAE2738B35E00804650 /* ConversationContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090AAFAD2738B35E00804650 /* ConversationContentView.swift */; };
 		090FED662734D91600446883 /* LocationContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090FED652734D91600446883 /* LocationContentView.swift */; };
 		091124CF2739817400E90F44 /* CustomDatePickerContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091124CE2739817400E90F44 /* CustomDatePickerContentView.swift */; };
@@ -17,6 +17,8 @@
 		097B8E6F272B6EDB00BDFFAA /* DiscoverContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097B8E6E272B6EDB00BDFFAA /* DiscoverContentView.swift */; };
 		09AF3EED27483DA700FC1322 /* KnockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AF3EEC27483DA700FC1322 /* KnockResponse.swift */; };
 		09AF3EEF274844E000FC1322 /* Knock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AF3EEE274844E000FC1322 /* Knock.swift */; };
+		09AF3EF12748779700FC1322 /* KnockMessageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AF3EF02748779700FC1322 /* KnockMessageResponse.swift */; };
+		09AF3EF32748795400FC1322 /* KnockMessageCardContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AF3EF22748795400FC1322 /* KnockMessageCardContentView.swift */; };
 		09B10327272DEE2F008A9CA4 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B10326272DEE2F008A9CA4 /* LocationManager.swift */; };
 		09B10329272DF31C008A9CA4 /* FilterPeopleContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B10328272DF31C008A9CA4 /* FilterPeopleContentView.swift */; };
 		09B53BE3273C5A69005FE806 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B53BE2273C5A69005FE806 /* Task.swift */; };
@@ -69,7 +71,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		090AAFAB2738B21C00804650 /* MessageCardContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCardContentView.swift; sourceTree = "<group>"; };
+		090AAFAB2738B21C00804650 /* KnockCardContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnockCardContentView.swift; sourceTree = "<group>"; };
 		090AAFAD2738B35E00804650 /* ConversationContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationContentView.swift; sourceTree = "<group>"; };
 		090FED652734D91600446883 /* LocationContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationContentView.swift; sourceTree = "<group>"; };
 		091124CE2739817400E90F44 /* CustomDatePickerContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerContentView.swift; sourceTree = "<group>"; };
@@ -79,6 +81,8 @@
 		097B8E6E272B6EDB00BDFFAA /* DiscoverContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverContentView.swift; sourceTree = "<group>"; };
 		09AF3EEC27483DA700FC1322 /* KnockResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnockResponse.swift; sourceTree = "<group>"; };
 		09AF3EEE274844E000FC1322 /* Knock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Knock.swift; sourceTree = "<group>"; };
+		09AF3EF02748779700FC1322 /* KnockMessageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnockMessageResponse.swift; sourceTree = "<group>"; };
+		09AF3EF22748795400FC1322 /* KnockMessageCardContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnockMessageCardContentView.swift; sourceTree = "<group>"; };
 		09B10326272DEE2F008A9CA4 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		09B10328272DF31C008A9CA4 /* FilterPeopleContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPeopleContentView.swift; sourceTree = "<group>"; };
 		09B53BE2273C5A69005FE806 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				09AF3EEC27483DA700FC1322 /* KnockResponse.swift */,
+				09AF3EF02748779700FC1322 /* KnockMessageResponse.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -325,7 +330,8 @@
 			children = (
 				09AF3EEB27483D8C00FC1322 /* Responses */,
 				09ECFD5D2738AFC7002D49FE /* InboxContentView.swift */,
-				090AAFAB2738B21C00804650 /* MessageCardContentView.swift */,
+				090AAFAB2738B21C00804650 /* KnockCardContentView.swift */,
+				09AF3EF22748795400FC1322 /* KnockMessageCardContentView.swift */,
 				090AAFAD2738B35E00804650 /* ConversationContentView.swift */,
 				09FE986A273C9B40004AEAB3 /* PopupInputContentView.swift */,
 			);
@@ -598,7 +604,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				090AAFAC2738B21C00804650 /* MessageCardContentView.swift in Sources */,
+				090AAFAC2738B21C00804650 /* KnockCardContentView.swift in Sources */,
 				09C302D6272A4F8300A2A54E /* TabbarContentView.swift in Sources */,
 				09ECFD5227389891002D49FE /* ThemeTextField.swift in Sources */,
 				09C302C4272A49D100A2A54E /* OnBoardingHubContentView.swift in Sources */,
@@ -617,11 +623,13 @@
 				09C302C9272A4C9000A2A54E /* Constants.swift in Sources */,
 				09AF3EED27483DA700FC1322 /* KnockResponse.swift in Sources */,
 				09ECFD5527389B0E002D49FE /* AccountContentView.swift in Sources */,
+				09AF3EF12748779700FC1322 /* KnockMessageResponse.swift in Sources */,
 				09B10327272DEE2F008A9CA4 /* LocationManager.swift in Sources */,
 				09C302C2272A49B900A2A54E /* OnBoardingObserver.swift in Sources */,
 				097B8E69272B4C7000BDFFAA /* Validators.swift in Sources */,
 				097B8E6F272B6EDB00BDFFAA /* DiscoverContentView.swift in Sources */,
 				09C30294272A23A300A2A54E /* Knock_iOSApp.swift in Sources */,
+				09AF3EF32748795400FC1322 /* KnockMessageCardContentView.swift in Sources */,
 				09C302D1272A4DF300A2A54E /* LoginContentView.swift in Sources */,
 				09B53BE3273C5A69005FE806 /* Task.swift in Sources */,
 				090AAFAE2738B35E00804650 /* ConversationContentView.swift in Sources */,
