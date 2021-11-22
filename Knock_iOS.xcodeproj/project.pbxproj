@@ -10,6 +10,10 @@
 		090AAFAC2738B21C00804650 /* KnockCardContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090AAFAB2738B21C00804650 /* KnockCardContentView.swift */; };
 		090AAFAE2738B35E00804650 /* ConversationContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090AAFAD2738B35E00804650 /* ConversationContentView.swift */; };
 		090FED662734D91600446883 /* LocationContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090FED652734D91600446883 /* LocationContentView.swift */; };
+		09107176274BF23400365768 /* PreviewJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09107175274BF23400365768 /* PreviewJSON.swift */; };
+		09107178274BF42800365768 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09107177274BF42800365768 /* SwiftUIView.swift */; };
+		0910717A274BF4DA00365768 /* posts.json in Resources */ = {isa = PBXBuildFile; fileRef = 09107179274BF4DA00365768 /* posts.json */; };
+		0910717C274BF5E800365768 /* post.json in Resources */ = {isa = PBXBuildFile; fileRef = 0910717B274BF5E800365768 /* post.json */; };
 		091124CF2739817400E90F44 /* CustomDatePickerContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091124CE2739817400E90F44 /* CustomDatePickerContentView.swift */; };
 		096B9D19273EC7CE004F51F5 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096B9D18273EC7CE004F51F5 /* Person.swift */; };
 		097B8E69272B4C7000BDFFAA /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097B8E68272B4C7000BDFFAA /* Validators.swift */; };
@@ -74,6 +78,10 @@
 		090AAFAB2738B21C00804650 /* KnockCardContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnockCardContentView.swift; sourceTree = "<group>"; };
 		090AAFAD2738B35E00804650 /* ConversationContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationContentView.swift; sourceTree = "<group>"; };
 		090FED652734D91600446883 /* LocationContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationContentView.swift; sourceTree = "<group>"; };
+		09107175274BF23400365768 /* PreviewJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewJSON.swift; sourceTree = "<group>"; };
+		09107177274BF42800365768 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		09107179274BF4DA00365768 /* posts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = posts.json; sourceTree = "<group>"; };
+		0910717B274BF5E800365768 /* post.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = post.json; sourceTree = "<group>"; };
 		091124CE2739817400E90F44 /* CustomDatePickerContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerContentView.swift; sourceTree = "<group>"; };
 		096B9D18273EC7CE004F51F5 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		097B8E68272B4C7000BDFFAA /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
@@ -246,6 +254,10 @@
 			isa = PBXGroup;
 			children = (
 				09C3029A272A23A600A2A54E /* Preview Assets.xcassets */,
+				09107175274BF23400365768 /* PreviewJSON.swift */,
+				09107177274BF42800365768 /* SwiftUIView.swift */,
+				09107179274BF4DA00365768 /* posts.json */,
+				0910717B274BF5E800365768 /* post.json */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -476,7 +488,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				09C3029B272A23A600A2A54E /* Preview Assets.xcassets in Resources */,
+				0910717A274BF4DA00365768 /* posts.json in Resources */,
 				09C30298272A23A600A2A54E /* Assets.xcassets in Resources */,
+				0910717C274BF5E800365768 /* post.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,6 +620,7 @@
 			files = (
 				090AAFAC2738B21C00804650 /* KnockCardContentView.swift in Sources */,
 				09C302D6272A4F8300A2A54E /* TabbarContentView.swift in Sources */,
+				09107176274BF23400365768 /* PreviewJSON.swift in Sources */,
 				09ECFD5227389891002D49FE /* ThemeTextField.swift in Sources */,
 				09C302C4272A49D100A2A54E /* OnBoardingHubContentView.swift in Sources */,
 				09ECFD5E2738AFC7002D49FE /* InboxContentView.swift in Sources */,
@@ -629,6 +644,7 @@
 				097B8E69272B4C7000BDFFAA /* Validators.swift in Sources */,
 				097B8E6F272B6EDB00BDFFAA /* DiscoverContentView.swift in Sources */,
 				09C30294272A23A300A2A54E /* Knock_iOSApp.swift in Sources */,
+				09107178274BF42800365768 /* SwiftUIView.swift in Sources */,
 				09AF3EF32748795400FC1322 /* KnockMessageCardContentView.swift in Sources */,
 				09C302D1272A4DF300A2A54E /* LoginContentView.swift in Sources */,
 				09B53BE3273C5A69005FE806 /* Task.swift in Sources */,
