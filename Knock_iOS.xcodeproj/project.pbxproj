@@ -14,6 +14,7 @@
 		09107178274BF42800365768 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09107177274BF42800365768 /* SwiftUIView.swift */; };
 		0910717A274BF4DA00365768 /* posts.json in Resources */ = {isa = PBXBuildFile; fileRef = 09107179274BF4DA00365768 /* posts.json */; };
 		0910717C274BF5E800365768 /* post.json in Resources */ = {isa = PBXBuildFile; fileRef = 0910717B274BF5E800365768 /* post.json */; };
+		0910717E274C2D4600365768 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0910717D274C2D4600365768 /* LoadingView.swift */; };
 		091124CF2739817400E90F44 /* CustomDatePickerContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091124CE2739817400E90F44 /* CustomDatePickerContentView.swift */; };
 		096B9D19273EC7CE004F51F5 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096B9D18273EC7CE004F51F5 /* Person.swift */; };
 		097B8E69272B4C7000BDFFAA /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097B8E68272B4C7000BDFFAA /* Validators.swift */; };
@@ -82,6 +83,7 @@
 		09107177274BF42800365768 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		09107179274BF4DA00365768 /* posts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = posts.json; sourceTree = "<group>"; };
 		0910717B274BF5E800365768 /* post.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = post.json; sourceTree = "<group>"; };
+		0910717D274C2D4600365768 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		091124CE2739817400E90F44 /* CustomDatePickerContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerContentView.swift; sourceTree = "<group>"; };
 		096B9D18273EC7CE004F51F5 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		097B8E68272B4C7000BDFFAA /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				097B8E6C272B4CC600BDFFAA /* ViewExtensions.swift */,
 				09ECFD4F273897A2002D49FE /* ThemeButton.swift */,
 				09ECFD5127389891002D49FE /* ThemeTextField.swift */,
+				0910717D274C2D4600365768 /* LoadingView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -631,6 +634,7 @@
 				09ECFD50273897A2002D49FE /* ThemeButton.swift in Sources */,
 				09F44B3B272CC7DB003022FA /* DiscoverPeopleCardContentView.swift in Sources */,
 				09AF3EEF274844E000FC1322 /* Knock.swift in Sources */,
+				0910717E274C2D4600365768 /* LoadingView.swift in Sources */,
 				09C302D8272A523F00A2A54E /* OnBoardingFooterContentView.swift in Sources */,
 				09B10329272DF31C008A9CA4 /* FilterPeopleContentView.swift in Sources */,
 				09C04F3427398688005E71A6 /* DateValue.swift in Sources */,

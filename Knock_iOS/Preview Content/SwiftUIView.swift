@@ -20,6 +20,7 @@ struct SwiftUIView: View {
     var body: some View {
         VStack {
             Text(post.title)
+            ProgressView("Working...")
         }
 //        List(posts, id: \.id) { post in
 //            Text(post.title)
