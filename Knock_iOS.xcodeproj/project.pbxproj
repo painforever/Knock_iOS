@@ -15,6 +15,7 @@
 		0910717A274BF4DA00365768 /* posts.json in Resources */ = {isa = PBXBuildFile; fileRef = 09107179274BF4DA00365768 /* posts.json */; };
 		0910717C274BF5E800365768 /* post.json in Resources */ = {isa = PBXBuildFile; fileRef = 0910717B274BF5E800365768 /* post.json */; };
 		0910717E274C2D4600365768 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0910717D274C2D4600365768 /* LoadingView.swift */; };
+		09107180274C621100365768 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0910717F274C621100365768 /* ImagePicker.swift */; };
 		091124CF2739817400E90F44 /* CustomDatePickerContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091124CE2739817400E90F44 /* CustomDatePickerContentView.swift */; };
 		096B9D19273EC7CE004F51F5 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096B9D18273EC7CE004F51F5 /* Person.swift */; };
 		097B8E69272B4C7000BDFFAA /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097B8E68272B4C7000BDFFAA /* Validators.swift */; };
@@ -84,6 +85,7 @@
 		09107179274BF4DA00365768 /* posts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = posts.json; sourceTree = "<group>"; };
 		0910717B274BF5E800365768 /* post.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = post.json; sourceTree = "<group>"; };
 		0910717D274C2D4600365768 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		0910717F274C621100365768 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		091124CE2739817400E90F44 /* CustomDatePickerContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerContentView.swift; sourceTree = "<group>"; };
 		096B9D18273EC7CE004F51F5 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		097B8E68272B4C7000BDFFAA /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
@@ -189,6 +191,8 @@
 		097B8E6A272B4CAB00BDFFAA /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				0910717D274C2D4600365768 /* LoadingView.swift */,
+				0910717F274C621100365768 /* ImagePicker.swift */,
 				097B8E6B272B4CB500BDFFAA /* Extensions */,
 			);
 			path = Components;
@@ -200,7 +204,6 @@
 				097B8E6C272B4CC600BDFFAA /* ViewExtensions.swift */,
 				09ECFD4F273897A2002D49FE /* ThemeButton.swift */,
 				09ECFD5127389891002D49FE /* ThemeTextField.swift */,
-				0910717D274C2D4600365768 /* LoadingView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -638,6 +641,7 @@
 				09C302D8272A523F00A2A54E /* OnBoardingFooterContentView.swift in Sources */,
 				09B10329272DF31C008A9CA4 /* FilterPeopleContentView.swift in Sources */,
 				09C04F3427398688005E71A6 /* DateValue.swift in Sources */,
+				09107180274C621100365768 /* ImagePicker.swift in Sources */,
 				09FE986B273C9B40004AEAB3 /* PopupInputContentView.swift in Sources */,
 				09C302C9272A4C9000A2A54E /* Constants.swift in Sources */,
 				09AF3EED27483DA700FC1322 /* KnockResponse.swift in Sources */,
