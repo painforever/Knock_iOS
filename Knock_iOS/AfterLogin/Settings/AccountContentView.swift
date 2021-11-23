@@ -38,11 +38,8 @@ struct AccountContentView: View {
                     }
                 }.padding()
             
-                HStack(spacing: 50) {
-                    Text("Upload Avatar").foregroundColor(.white)
-                    Image(systemName: "checkmark")
-                    .foregroundColor(Color.accentColor)
-                    font(.system(size: 16, weight: .regular))
+                HStack(spacing: 20) {
+                    showFileSelected()
                     Button {
                         showingImagePicker = true
                     } label: {
@@ -77,9 +74,25 @@ struct AccountContentView: View {
         }
     }
     
+    @ViewBuilder
+    func showFileSelected() -> some View {
+        if let _ = avatarImage {
+            Group {
+                Text("Avatar Selected").foregroundColor(.white)
+                Image(systemName: "checkmark").foregroundColor(.white)
+            }
+        }
+        else {
+            Group {
+                Text("Upload Avatar").foregroundColor(.white)
+            }
+        }
+    }
+    
     func loadImage() {
         guard let selectedImage = avatarImage else { return }
         let image = Image(uiImage: selectedImage)
+        
     }
 }
 
