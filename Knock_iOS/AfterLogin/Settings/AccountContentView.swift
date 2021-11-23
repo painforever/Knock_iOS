@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Alamofire
 
 struct AccountContentView: View {
     @State var email: String = ""
@@ -54,7 +55,15 @@ struct AccountContentView: View {
                 .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 1)).frame(maxWidth: .infinity)
                 
                 Button(action: {
-                    
+                    if let userId = UserDefaults.standard.string(forKey: Constants.userId) {
+                        
+                        var parameters: [String: String] =  ["email": self.email, "password": self.password]
+                     
+                        if let avatarImage = avatarImage {
+                            let avatarImageData: Data = avatarImage.jpegData(compressionQuality: 0.1) ?? Data()
+                            upload(image: avatarImageData, params: parameters, userId: userId)
+                        }
+                    }
                 }, label: {
                     Text("Update").themeButton(height: 50)
                 })
@@ -92,7 +101,20 @@ struct AccountContentView: View {
     func loadImage() {
         guard let selectedImage = avatarImage else { return }
         let image = Image(uiImage: selectedImage)
-        
+    }
+    
+    func upload(image : Data, params: [String: String], userId: String) {
+        let urlString = "\(Constants.BaseUrl)/users/\(userId)"
+        let headers: HTTPHeaders =
+            ["Content-type": "multipart/form-data",
+            "Accept": "application/json"]
+        AF.upload(multipartFormData: { multipartFormData in
+            multipartFormData.append(email.description.data(using: .utf8)!, withName: "email")
+            multipartFormData.append(password.description.data(using: .utf8)!, withName: "password")
+            multipartFormData.append(image, withName: "s3_avatar_photo", fileName: "\(avatarImageName)", mimeType: "image/png")
+        }, to: urlString, method: .patch, headers: headers).responseJSON { (resp) in
+                print("DEBUG: resp is \(resp)")
+        }
     }
 }
 
@@ -101,3 +123,4 @@ struct AccountContentView_Previews: PreviewProvider {
         AccountContentView()
     }
 }
+
