@@ -17,6 +17,8 @@
 		0910717E274C2D4600365768 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0910717D274C2D4600365768 /* LoadingView.swift */; };
 		09107180274C621100365768 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0910717F274C621100365768 /* ImagePicker.swift */; };
 		091124CF2739817400E90F44 /* CustomDatePickerContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091124CE2739817400E90F44 /* CustomDatePickerContentView.swift */; };
+		09480C88274F1E44006062AA /* KnockMetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09480C87274F1E44006062AA /* KnockMetaData.swift */; };
+		09480C8B274F2058006062AA /* KnockCalendarReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09480C8A274F2058006062AA /* KnockCalendarReponse.swift */; };
 		096B9D19273EC7CE004F51F5 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096B9D18273EC7CE004F51F5 /* Person.swift */; };
 		097B8E69272B4C7000BDFFAA /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097B8E68272B4C7000BDFFAA /* Validators.swift */; };
 		097B8E6D272B4CC600BDFFAA /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097B8E6C272B4CC600BDFFAA /* ViewExtensions.swift */; };
@@ -87,6 +89,8 @@
 		0910717D274C2D4600365768 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		0910717F274C621100365768 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		091124CE2739817400E90F44 /* CustomDatePickerContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerContentView.swift; sourceTree = "<group>"; };
+		09480C87274F1E44006062AA /* KnockMetaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnockMetaData.swift; sourceTree = "<group>"; };
+		09480C8A274F2058006062AA /* KnockCalendarReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnockCalendarReponse.swift; sourceTree = "<group>"; };
 		096B9D18273EC7CE004F51F5 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		097B8E68272B4C7000BDFFAA /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
 		097B8E6C272B4CC600BDFFAA /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
@@ -179,11 +183,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		09480C89274F1FFA006062AA /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				09480C8A274F2058006062AA /* KnockCalendarReponse.swift */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
 		096B9D17273EC7C3004F51F5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				096B9D18273EC7CE004F51F5 /* Person.swift */,
 				09AF3EEE274844E000FC1322 /* Knock.swift */,
+				09480C87274F1E44006062AA /* KnockMetaData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -335,6 +348,7 @@
 		09ECFD592738A882002D49FE /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				09480C89274F1FFA006062AA /* Responses */,
 				09ECFD5A2738A891002D49FE /* CalendarContentView.swift */,
 				091124CE2739817400E90F44 /* CustomDatePickerContentView.swift */,
 				09C04F3327398688005E71A6 /* DateValue.swift */,
@@ -653,6 +667,7 @@
 				097B8E6F272B6EDB00BDFFAA /* DiscoverContentView.swift in Sources */,
 				09C30294272A23A300A2A54E /* Knock_iOSApp.swift in Sources */,
 				09107178274BF42800365768 /* SwiftUIView.swift in Sources */,
+				09480C88274F1E44006062AA /* KnockMetaData.swift in Sources */,
 				09AF3EF32748795400FC1322 /* KnockMessageCardContentView.swift in Sources */,
 				09C302D1272A4DF300A2A54E /* LoginContentView.swift in Sources */,
 				09B53BE3273C5A69005FE806 /* Task.swift in Sources */,
@@ -664,6 +679,7 @@
 				09C302CF272A4D9600A2A54E /* OnBoardingContentView3.swift in Sources */,
 				096B9D19273EC7CE004F51F5 /* Person.swift in Sources */,
 				090FED662734D91600446883 /* LocationContentView.swift in Sources */,
+				09480C8B274F2058006062AA /* KnockCalendarReponse.swift in Sources */,
 				09C663F52746047600A2594E /* FilterPeopleViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

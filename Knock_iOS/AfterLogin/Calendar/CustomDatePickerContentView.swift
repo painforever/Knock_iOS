@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import Alamofire
 
 struct CustomDatePickerContentView: View {
     @Binding var currentDate: Date
     
     //Month update on arrow button clicks
     @State var currentMonth: Int = 0
+    //data...
+    @State var knockDataByDay: [KnockCalendarResponse] = []
     
     var body: some View {
         VStack(spacing: 35) {
@@ -57,7 +60,7 @@ struct CustomDatePickerContentView: View {
             LazyVGrid(columns: columns, spacing: 15) {
                 ForEach(extractDate()) { value in
                     CardView(value: value).background(
-                        Capsule().fill(Color(.systemPink))
+                        Capsule().fill(Color(Constants.themeColor))
                             .padding(.horizontal, 8)
                             .opacity(isSameDay(date1: value.date, date2: currentDate) ? 1 : 0)
                     )
@@ -78,7 +81,7 @@ struct CustomDatePickerContentView: View {
                 }) {
                     ForEach(task.task) { task in
                         VStack(alignment: .leading, spacing: 10) {
-                            Text(task.time.addingTimeInterval(TimeInterval(CGFloat.random(in: 0...5000))), style: .time)
+                            Text(task.time.addingTimeInterval(TimeInterval(CGFloat.random(in: 0...5000))), style: .time).foregroundColor(.white).fontWeight(.bold)
                             
                             Text(task.title).font(.title2.bold())
                         }
@@ -86,7 +89,7 @@ struct CustomDatePickerContentView: View {
                         .padding(.horizontal)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .background(
-                            Color(.purple).opacity(0.5).cornerRadius(10)
+                            Color(Constants.themeColor).opacity(0.5).cornerRadius(10)
                         )
                     }
                 }
@@ -113,7 +116,7 @@ struct CustomDatePickerContentView: View {
                         .foregroundColor(isSameDay(date1: task.taskDate, date2: currentDate) ? .white : .primary)
                         .frame(maxWidth: .infinity)
                     Spacer()
-                    Circle().fill(isSameDay(date1: task.taskDate, date2: currentDate) ? .white : Color(.systemPink))
+                    Circle().fill(isSameDay(date1: task.taskDate, date2: currentDate) ? .white : Color(Constants.themeColor))
                         .frame(width: 8, height: 8)
                 }
                 else {
@@ -168,6 +171,17 @@ struct CustomDatePickerContentView: View {
         let calendar = Calendar.current
         guard let currentMonth = calendar.date(byAdding: .month, value: self.currentMonth, to: Date()) else { return Date() }
         return currentMonth
+    }
+    
+    func loadDayKnocks() {
+        if let userId = UserDefaults.standard.string(forKey: Constants.userId) {
+            AF.request("\(Constants.BaseUrl)/knocks/daily_knocks.json", method: .get, parameters: ["user_id": userId]).responseJSON { data in
+                let jsonDecoder = JSONDecoder()
+                jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+                let json = try! jsonDecoder.decode([KnockCalendarResponse].self, from: data.data!)
+                knockDataByDay = json
+            }
+        }
     }
 }
 
