@@ -14,7 +14,7 @@ struct CustomDatePickerContentView: View {
     //Month update on arrow button clicks
     @State var currentMonth: Int = 0
     //data...
-    @State var knockDataByDay: [KnockCalendarResponse] = []
+    @State var knockDataByMonth: [KnockMetaCalendarResponse] = []
     
     var body: some View {
         VStack(spacing: 35) {
@@ -76,14 +76,13 @@ struct CustomDatePickerContentView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.vertical, 20)
                 
-                if let task = tasks.first(where: { task in
-                    return isSameDay(date1: task.taskDate, date2: currentDate)
+                if let knockMeta = knockDataByMonth.first(where: { k in
+                    return isSameDay(date1: k.knockDate, date2: currentDate)
                 }) {
-                    ForEach(task.task) { task in
+                    ForEach(knockMeta.knocks) { knock in
                         VStack(alignment: .leading, spacing: 10) {
-                            Text(task.time.addingTimeInterval(TimeInterval(CGFloat.random(in: 0...5000))), style: .time).foregroundColor(.white).fontWeight(.bold)
-                            
-                            Text(task.title).font(.title2.bold())
+                            Text(knock.knockDatetime.addingTimeInterval(TimeInterval(CGFloat.random(in: 0...5000))), style: .time).foregroundColor(.white).fontWeight(.bold)
+                            Text(knock.subject).font(.title2.bold())
                         }
                         .padding(.vertical, 10)
                         .padding(.horizontal)
@@ -102,21 +101,24 @@ struct CustomDatePickerContentView: View {
             //Update month
             currentDate = getCurrentMonth()
         }
+        .onAppear {
+            loadMonthlyKnocks()
+        }
     }
     
     @ViewBuilder
     func CardView(value: DateValue) -> some View {
         VStack {
             if value.day != -1 {
-                if let task = tasks.first(where: { task in
-                    return isSameDay(date1: task.taskDate, date2: value.date)
+                if let knockMeta = knockDataByMonth.first(where: { k in
+                    return isSameDay(date1: k.knockDate, date2: value.date)
                 }) {
                     Text("\(value.day)")
                         .font(.title3.bold())
-                        .foregroundColor(isSameDay(date1: task.taskDate, date2: currentDate) ? .white : .primary)
+                        .foregroundColor(isSameDay(date1: knockMeta.knockDate, date2: currentDate) ? .white : .primary)
                         .frame(maxWidth: .infinity)
                     Spacer()
-                    Circle().fill(isSameDay(date1: task.taskDate, date2: currentDate) ? .white : Color(Constants.themeColor))
+                    Circle().fill(isSameDay(date1: knockMeta.knockDate, date2: currentDate) ? .white : Color(Constants.themeColor))
                         .frame(width: 8, height: 8)
                 }
                 else {
@@ -173,13 +175,14 @@ struct CustomDatePickerContentView: View {
         return currentMonth
     }
     
-    func loadDayKnocks() {
+    func loadMonthlyKnocks() {
         if let userId = UserDefaults.standard.string(forKey: Constants.userId) {
-            AF.request("\(Constants.BaseUrl)/knocks/daily_knocks.json", method: .get, parameters: ["user_id": userId]).responseJSON { data in
+            AF.request("\(Constants.BaseUrl)/knocks/monthly_knocks", method: .get, parameters: ["user_id": userId, "knock_datetime": "2021-12-01 13:00:00"]).responseJSON { data in
                 let jsonDecoder = JSONDecoder()
+                jsonDecoder.dateDecodingStrategy = .iso8601
                 jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-                let json = try! jsonDecoder.decode([KnockCalendarResponse].self, from: data.data!)
-                knockDataByDay = json
+                let json = try! jsonDecoder.decode([KnockMetaCalendarResponse].self, from: data.data!)
+                knockDataByMonth = json
             }
         }
     }
