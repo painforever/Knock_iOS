@@ -77,6 +77,7 @@ struct CustomDatePickerContentView: View {
                     .padding(.vertical, 20)
                 
                 if let knockMeta = knockDataByMonth.first(where: { k in
+                    print("DEBUG: \(k)")
                     return isSameDay(date1: k.knockDate, date2: currentDate)
                 }) {
                     ForEach(knockMeta.knocks) { knock in
@@ -179,8 +180,14 @@ struct CustomDatePickerContentView: View {
         if let userId = UserDefaults.standard.string(forKey: Constants.userId) {
             AF.request("\(Constants.BaseUrl)/knocks/monthly_knocks", method: .get, parameters: ["user_id": userId, "knock_datetime": "2021-12-01 13:00:00"]).responseJSON { data in
                 let jsonDecoder = JSONDecoder()
-                jsonDecoder.dateDecodingStrategy = .iso8601
+                //jsonDecoder.dateDecodingStrategy = .iso8601
                 jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                
+                jsonDecoder.dateDecodingStrategy = .formatted(dateFormatter)
+                
                 let json = try! jsonDecoder.decode([KnockMetaCalendarResponse].self, from: data.data!)
                 knockDataByMonth = json
             }
