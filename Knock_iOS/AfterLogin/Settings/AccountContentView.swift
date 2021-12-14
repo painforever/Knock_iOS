@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Alamofire
+import SDWebImageSwiftUI
 
 struct AccountContentView: View {
     @State var email: String = ""
@@ -15,63 +16,86 @@ struct AccountContentView: View {
     @State var preferredDistance = 10.0
     @State var anyDistance: Bool = true
     
+    @State private var avatarUrl: String = "https://st3.depositphotos.com/1007566/13175/v/600/depositphotos_131750410-stock-illustration-woman-female-avatar-character.jpg"
     @State private var showingImagePicker = false
     @State private var avatarImage: UIImage?
     @State private var avatarImageName: String = ""
     
     var body: some View {
         ZStack {
-            Rectangle().fill(Color(Constants.themeColor))
-            VStack {
-                TextField("Email", text: self.$email).frame(height: 20).modifier(ThemeTextField())
-                
-                TextField("Password", text: self.$password).frame(height: 20).modifier(ThemeTextField())
-                
-                TextField("Password Confirm", text: self.$passwordConfirm).frame(height: 20).modifier(ThemeTextField())
-                
+            Rectangle().fill(Color(Constants.themeColor)).ignoresSafeArea()
+            ScrollView {
                 VStack {
+                    AnimatedImage(url: URL(string: avatarUrl)).resizable().aspectRatio(contentMode: .fit).frame(width: 150, height: 150)
+                        .cornerRadius(75)
+                        .padding(.horizontal, 5)
+                    TextField("Email", text: self.$email).frame(height: 20).modifier(ThemeTextField())
+                    
+                    SecureField("Password", text: self.$password).frame(height: 20).modifier(ThemeTextField())
+                    
+                    SecureField("Password Confirm", text: self.$passwordConfirm).frame(height: 20).modifier(ThemeTextField())
+                    
                     VStack {
-                        Text("  Distance(miles): \(showMiles())").foregroundColor(.white)
-                        Toggle("Any Distance", isOn: $anyDistance).foregroundColor(.white)
-                    }
-                    if anyDistance == false {
-                        Slider(value: $preferredDistance, in: 0...100, onEditingChanged: { _ in }).accentColor(.white)
-                    }
-                }.padding()
-            
-                HStack(spacing: 20) {
-                    showFileSelected()
-                    Button {
-                        showingImagePicker = true
-                    } label: {
-                        Text("Open Gallary")
-                            .padding()
-                            .foregroundColor(Color(Constants.themeColor))
-                            .background(Color.white)
-                            .cornerRadius(10)
-                    }
-                }.padding(.horizontal, 30)
-                .padding(.vertical, 10)
-                .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 1)).frame(maxWidth: .infinity)
+                        VStack {
+                            Text("  Distance(miles): \(showMiles())").foregroundColor(.white)
+                            Toggle("Any Distance", isOn: $anyDistance).foregroundColor(.white)
+                        }
+                        if anyDistance == false {
+                            Slider(value: $preferredDistance, in: 0...100, onEditingChanged: { _ in }).accentColor(.white)
+                        }
+                    }.padding()
                 
-                Button(action: {
-                    if let userId = UserDefaults.standard.string(forKey: Constants.userId) {
+                    HStack(spacing: 20) {
+                        showFileSelected()
+                        Button {
+                            showingImagePicker = true
+                        } label: {
+                            Text("Open Gallary")
+                                .padding()
+                                .foregroundColor(Color(Constants.themeColor))
+                                .background(Color.white)
+                                .cornerRadius(10)
+                        }
+                    }.padding(.horizontal, 30)
+                    .padding(.vertical, 10)
+                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 1)).frame(maxWidth: .infinity)
+                    
+                    Button(action: {
+                        if let userId = UserDefaults.standard.string(forKey: Constants.userId) {
+                            
+                            var parameters: [String: String] =  ["email": self.email, "password": self.password]
+                         
+                            if let avatarImage = avatarImage {
+                                let avatarImageData: Data = avatarImage.jpegData(compressionQuality: 0.1) ?? Data()
+                                upload(image: avatarImageData, params: parameters, userId: userId)
+                            }
+                        }
+                    }, label: {
+                        Text("Update").themeButton(height: 50)
+                    })
+                    
+                    Button {
                         
-                        var parameters: [String: String] =  ["email": self.email, "password": self.password]
-                     
-                        if let avatarImage = avatarImage {
-                            let avatarImageData: Data = avatarImage.jpegData(compressionQuality: 0.1) ?? Data()
-                            upload(image: avatarImageData, params: parameters, userId: userId)
+                    } label: {
+                        Text("Logout").themeButton(height: 50)
+                    }
+
+                }.onAppear {
+                    if let userId = UserDefaults.standard.string(forKey: Constants.userId) {
+                        AF.request("\(Constants.BaseUrl)/users/\(userId)", method: .get).responseJSON { data in
+                            let jsonDecoder = JSONDecoder()
+                            jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+                            let json = try! jsonDecoder.decode(User.self, from: data.data!)
+                            avatarUrl = json.s3AvatarPhoto.url
+                            email = json.email
                         }
                     }
-                }, label: {
-                    Text("Update").themeButton(height: 50)
-                })
+                }
+                .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
+                    ImagePicker(image: self.$avatarImage, imageName: self.$avatarImageName)
+                }
             }
-            .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
-                ImagePicker(image: self.$avatarImage, imageName: self.$avatarImageName)
-            }
-        }.ignoresSafeArea()
+        }
     }
     
     func showMiles() -> String {
@@ -113,7 +137,11 @@ struct AccountContentView: View {
             multipartFormData.append(password.description.data(using: .utf8)!, withName: "password")
             multipartFormData.append(image, withName: "s3_avatar_photo", fileName: "\(avatarImageName)", mimeType: "image/png")
         }, to: urlString, method: .patch, headers: headers).responseJSON { (resp) in
-                print("DEBUG: resp is \(resp)")
+            print("DEBUG: resp is \(resp)")
+            let jsonDecoder = JSONDecoder()
+            jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+            let json = try! jsonDecoder.decode(User.self, from: resp.data!)
+            avatarUrl = json.s3AvatarPhoto.url
         }
     }
 }
