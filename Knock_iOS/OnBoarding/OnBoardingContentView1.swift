@@ -14,9 +14,8 @@ struct OnBoardingContentView1: View {
             Image("onboarding1").resizable().frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2, alignment: .center).scaledToFit().overlay(Rectangle().fill(Color.black).opacity(0.7))
             VStack {
                 Spacer()
-                Text("Check My 401(k) Risk Level").foregroundColor(Color.white).foregroundColor(Color.white).fontWeight(.bold).font(.system(size: 25)).padding()
-                Text("Know how risky your portfolio is").foregroundColor(Color.white).padding()
-                Text("Consider: Safe growth with an index annuity").foregroundColor(Color.white).multilineTextAlignment(.center).padding()
+                Text("Earn money from your expertise.").foregroundColor(Color.white).foregroundColor(Color.white).fontWeight(.bold).font(.system(size: 25)).padding()
+                Text("Just so, from the ship's steep side, did I hold Queenqueg down there in the sea, by what is technically called in the fishery a monkey-rope.").foregroundColor(Color.white).padding()
                 Spacer()
                 OnBoardingFooterContentView().padding()
                 

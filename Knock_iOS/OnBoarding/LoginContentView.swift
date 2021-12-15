@@ -11,10 +11,11 @@ import SwiftyJSON
 
 extension LoginContentView {
     class LoginContentViewViewModel: ObservableObject {
-        @Published var email: String = ""
+        @Published var email: String = "terrorgeek@gmail.com"
         @Published var emailError: String = ""
-        @Published var password: String = ""
+        @Published var password: String = "123123123"
         @Published var passwordError: String = ""
+        @Published var loginSuccess: Bool = false
         
         init() {
             $email.map { $0.count > 0 && ($0.count < 4 || !Validators.isValidEmail($0)) ? "Email is not valid!" : "" }.assign(to: &$emailError)
@@ -26,7 +27,7 @@ extension LoginContentView {
 struct LoginContentView: View {
     @EnvironmentObject var onBoardingObserver: OnBoardingObserver
     
-    @State var loginSuccess: Bool = false
+    //@State var loginSuccess: Bool = false
     @State var credentialsWrong: Bool = false
     @State var isLoading: Bool = false
     
@@ -34,8 +35,8 @@ struct LoginContentView: View {
     @StateObject var locationManager = LocationManager()
     
     var body: some View {
-        if loginSuccess {
-            TabbarContentView()
+        if viewModel.loginSuccess {
+            TabbarContentView().environmentObject(viewModel)
         } else {
             ZStack {
                 Rectangle().fill(Color(Constants.themeColor))
@@ -59,7 +60,7 @@ struct LoginContentView: View {
                     VStack(alignment: .center, spacing: 20) {
                         NavigationLink(
                             destination: TabbarContentView(),
-                            isActive: self.$loginSuccess,
+                            isActive: self.$viewModel.loginSuccess,
                             label: {
                                 EmptyView()
                             }).hidden()
@@ -80,12 +81,12 @@ struct LoginContentView: View {
                                     let json = try! JSON(data: data.data!)
                                     if json["result"].stringValue == "yes" {
                                         UserDefaults.standard.set(json["data"]["id"].stringValue, forKey: Constants.userId)
-                                        self.loginSuccess = true
+                                        self.viewModel.loginSuccess = true
                                         self.credentialsWrong = false
                                         self.isLoading = false
                                     }
                                     else {
-                                        self.loginSuccess = false
+                                        self.viewModel.loginSuccess = false
                                         self.credentialsWrong = true
                                         self.isLoading = false
                                     }
@@ -107,9 +108,15 @@ struct LoginContentView: View {
                         })
                     }
                 }
-            }.ignoresSafeArea()
+            }
+            .ignoresSafeArea()
             .onTapGesture {
                 dismissKeyboard()
+            }
+            .onAppear {
+                if let _ = UserDefaults.standard.string(forKey: Constants.userId) {
+                    viewModel.loginSuccess = true
+                }
             }
             .accentColor(.white)
         }

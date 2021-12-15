@@ -10,6 +10,8 @@ import Alamofire
 import SDWebImageSwiftUI
 
 struct AccountContentView: View {
+    @EnvironmentObject var loginContentViewViewModel: LoginContentView.LoginContentViewViewModel
+    
     @State var email: String = ""
     @State var password: String = ""
     @State var passwordConfirm: String = ""
@@ -75,7 +77,8 @@ struct AccountContentView: View {
                     })
                     
                     Button {
-                        
+                        UserDefaults.standard.removeObject(forKey: Constants.userId)
+                        loginContentViewViewModel.loginSuccess = false
                     } label: {
                         Text("Logout").themeButton(height: 50)
                     }

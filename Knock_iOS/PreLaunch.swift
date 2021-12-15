@@ -13,17 +13,22 @@ struct PreLaunch: View {
     @State var opacity: Double = 1
     @State var scale: CGFloat = 1
     
+    var onBoardingObserver: OnBoardingObserver = OnBoardingObserver()
+    
     var body: some View {
         Group {
             if showApp {
                 let firstTimeUseApp = UserDefaults.standard.string(forKey: Constants.firstTimeUseApp)
                 if firstTimeUseApp == nil {
-                    OnBoardingHubContentView()
-                        .environmentObject(OnBoardingObserver())
+                    OnBoardingHubContentView().environmentObject(onBoardingObserver)
                 }
                 else {
                     if let _ = UserDefaults.standard.string(forKey: Constants.userId) {
-                        TabbarContentView()
+                        //TabbarContentView().environmentObject(onBoardingObserver)
+                        //OnBoardingHubContentView().environmentObject(onBoardingObserver)
+                        
+                        //Login will automatically set loginSuccess State to true to show tabs
+                        LoginContentView().environmentObject(onBoardingObserver)
                     }
                     else {
                         OnBoardingHubContentView().environmentObject(Knock_iOSApp.returnAndSetOnBoardingCurrentItemToLogin())

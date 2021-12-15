@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TabbarContentView: View {
+    @EnvironmentObject var onBoardingObserver: OnBoardingObserver
+    
     init() {
         UITabBar.appearance().backgroundColor = UIColor.white
     }
