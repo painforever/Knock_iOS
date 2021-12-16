@@ -29,6 +29,11 @@ struct InboxContentView: View {
                 }
             }
             .navigationBarTitle(Text("Inbox"), displayMode: .large)
+            .navigationBarItems(trailing: NavigationLink(destination: {
+                NewKnockContentView()
+            }, label: {
+                Text("New Knock")
+            }))
         }
     }
 }

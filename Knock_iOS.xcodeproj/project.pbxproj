@@ -51,6 +51,7 @@
 		09C302D6272A4F8300A2A54E /* TabbarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C302D5272A4F8300A2A54E /* TabbarContentView.swift */; };
 		09C302D8272A523F00A2A54E /* OnBoardingFooterContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C302D7272A523F00A2A54E /* OnBoardingFooterContentView.swift */; };
 		09C663F52746047600A2594E /* FilterPeopleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C663F42746047600A2594E /* FilterPeopleViewModel.swift */; };
+		09D32583276AEEC8006C48BD /* NewKnockContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D32582276AEEC8006C48BD /* NewKnockContentView.swift */; };
 		09ECFD50273897A2002D49FE /* ThemeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ECFD4F273897A2002D49FE /* ThemeButton.swift */; };
 		09ECFD5227389891002D49FE /* ThemeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ECFD5127389891002D49FE /* ThemeTextField.swift */; };
 		09ECFD5527389B0E002D49FE /* AccountContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ECFD5427389B0E002D49FE /* AccountContentView.swift */; };
@@ -131,6 +132,7 @@
 		09C302D5272A4F8300A2A54E /* TabbarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarContentView.swift; sourceTree = "<group>"; };
 		09C302D7272A523F00A2A54E /* OnBoardingFooterContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingFooterContentView.swift; sourceTree = "<group>"; };
 		09C663F42746047600A2594E /* FilterPeopleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPeopleViewModel.swift; sourceTree = "<group>"; };
+		09D32582276AEEC8006C48BD /* NewKnockContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewKnockContentView.swift; sourceTree = "<group>"; };
 		09ECFD4F273897A2002D49FE /* ThemeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeButton.swift; sourceTree = "<group>"; };
 		09ECFD5127389891002D49FE /* ThemeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeTextField.swift; sourceTree = "<group>"; };
 		09ECFD5427389B0E002D49FE /* AccountContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountContentView.swift; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 				09AF3EF22748795400FC1322 /* KnockMessageCardContentView.swift */,
 				090AAFAD2738B35E00804650 /* ConversationContentView.swift */,
 				09FE986A273C9B40004AEAB3 /* PopupInputContentView.swift */,
+				09D32582276AEEC8006C48BD /* NewKnockContentView.swift */,
 			);
 			path = Inbox;
 			sourceTree = "<group>";
@@ -672,6 +675,7 @@
 				09B10327272DEE2F008A9CA4 /* LocationManager.swift in Sources */,
 				09C302C2272A49B900A2A54E /* OnBoardingObserver.swift in Sources */,
 				097B8E69272B4C7000BDFFAA /* Validators.swift in Sources */,
+				09D32583276AEEC8006C48BD /* NewKnockContentView.swift in Sources */,
 				097B8E6F272B6EDB00BDFFAA /* DiscoverContentView.swift in Sources */,
 				09C30294272A23A300A2A54E /* Knock_iOSApp.swift in Sources */,
 				09107178274BF42800365768 /* SwiftUIView.swift in Sources */,
