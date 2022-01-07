@@ -13,6 +13,7 @@ struct AccountContentView: View {
     @EnvironmentObject var loginContentViewViewModel: LoginContentView.LoginContentViewViewModel
     
     @State var email: String = ""
+    @State var username: String = ""
     @State var password: String = ""
     @State var passwordConfirm: String = ""
     @State var preferredDistance = 10.0
@@ -31,6 +32,7 @@ struct AccountContentView: View {
                     AnimatedImage(url: URL(string: avatarUrl)).resizable().aspectRatio(contentMode: .fit).frame(width: 150, height: 150)
                         .cornerRadius(75)
                         .padding(.horizontal, 5)
+                    Text("#\(username)").font(.system(size: 20)).font(.body).foregroundColor(.white)
                     TextField("Email", text: self.$email).frame(height: 20).modifier(ThemeTextField())
                     
                     SecureField("Password", text: self.$password).frame(height: 20).modifier(ThemeTextField())
@@ -90,7 +92,8 @@ struct AccountContentView: View {
                             jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
                             let json = try! jsonDecoder.decode(User.self, from: data.data!)
                             avatarUrl = json.s3AvatarPhoto.url
-                            email = json.email
+                            email    = json.email
+                            username = json.username
                         }
                     }
                 }

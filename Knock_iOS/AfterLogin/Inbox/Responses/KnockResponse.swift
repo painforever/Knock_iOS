@@ -17,6 +17,7 @@ struct KnockResponse: Codable, Identifiable, Hashable {
     var username: String
     let sentAt: String
     let firstMessage: String
+    let avatar: String
     
 //    enum CodingKeys: String, CodingKey {
 //        case userId = "user_id"

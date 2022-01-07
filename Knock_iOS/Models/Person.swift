@@ -15,4 +15,5 @@ struct Person: Identifiable {
     let occupation: String
     let locationAcceptedDistance: String
     let dnas: String
+    var s3AvatarPhoto: String
 }

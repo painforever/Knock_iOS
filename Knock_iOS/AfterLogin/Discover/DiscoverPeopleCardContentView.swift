@@ -11,13 +11,14 @@ import SDWebImageSwiftUI
 struct DiscoverPeopleCardContentView: View {
     @Binding var person: Person
     @Binding var bgImage: String
+    
     let cardHeight: CGFloat = 250
     let cardWidth: CGFloat = UIScreen.main.bounds.width
     
     var body: some View {
         VStack {
             HStack {
-                AnimatedImage(url: URL(string: "https://st3.depositphotos.com/1007566/13175/v/600/depositphotos_131750410-stock-illustration-woman-female-avatar-character.jpg")).resizable().aspectRatio(contentMode: .fit).frame(width: 100, height: 100)
+                AnimatedImage(url: URL(string: person.s3AvatarPhoto)).resizable().aspectRatio(contentMode: .fit).frame(width: 100, height: 100)
                     .overlay(RoundedRectangle(cornerRadius: 50).stroke(Color(.lightGray), lineWidth: 1))
                     .cornerRadius(50)
                     .padding(.horizontal, 20)
@@ -67,6 +68,6 @@ struct DiscoverPeopleCardContentView: View {
 
 struct DiscoverPeopleCardContentView_Previews: PreviewProvider {
     static var previews: some View {
-        DiscoverPeopleCardContentView(person: .constant(Person(username: "Painforever", city: "Arlington", price: "34.88", occupation: "Poker in Carousel", locationAcceptedDistance: "4.7", dnas: "Sports, Games")), bgImage: .constant(Constants.discoverPeopleCard1))
+        DiscoverPeopleCardContentView(person: .constant(Person(username: "Painforever", city: "Arlington", price: "34.88", occupation: "Poker in Carousel", locationAcceptedDistance: "4.7", dnas: "Sports, Games", s3AvatarPhoto: "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png")), bgImage: .constant(Constants.discoverPeopleCard1))
     }
 }

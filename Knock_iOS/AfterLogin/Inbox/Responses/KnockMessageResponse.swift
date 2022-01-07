@@ -14,4 +14,5 @@ struct KnockMessageResponse: Codable, Identifiable, Hashable {
     let sentAt: String
     let senderUsername: String
     let message: String
+    var senderAvatar: String
 }

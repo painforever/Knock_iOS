@@ -41,7 +41,7 @@ struct DiscoverContentView: View {
                         FilterPeopleContentView(locationManager: locationManager, filterPeopleViewModel: filterPeopleViewModel)
                     }
                     Button(action: {
-                        
+                        searchPeople()
                     }, label: {
                         Image(systemName: "magnifyingglass").font(.system(size: 25, weight: .regular)).foregroundColor(.white)
                     }).padding(.trailing, 20)
@@ -50,7 +50,6 @@ struct DiscoverContentView: View {
                 List {
                     ForEach(self.$viewModel.data) { user in
                         DiscoverPeopleCardContentView(person: user, bgImage: .constant(Constants.discoverPeopleCard1))
-                        
                     }
                 }
                 .frame(width: UIScreen.main.bounds.size.width, alignment: .center)
@@ -77,7 +76,43 @@ struct DiscoverContentView: View {
                     let distanceValue = user.1["distance"].stringValue
                     let dnas = user.1["dnas"].arrayValue.map { $0.stringValue }
                     
-                    self.viewModel.data.append(Person(username: userValue["username"]!.stringValue, city: userValue["city"]!.stringValue, price: userValue["meeting_rate"]!.stringValue, occupation: userValue["occupation"]!.stringValue, locationAcceptedDistance: distanceValue, dnas: dnas.joined(separator: ",")))
+                    self.viewModel.data.append(
+                        Person(
+                            username: userValue["username"]!.stringValue,
+                            city: userValue["city"]!.stringValue,
+                            price: userValue["meeting_rate"]!.stringValue,
+                            occupation: userValue["occupation"]!.stringValue,
+                            locationAcceptedDistance: distanceValue,
+                            dnas: dnas.joined(separator: ","),
+                            s3AvatarPhoto: userValue["s3_avatar_photo"]!["url"].stringValue
+                        )
+                    )
+                }
+            }
+        }
+    }
+    
+    func searchPeople() {
+        if let user_id = UserDefaults.standard.string(forKey: Constants.userId), let lat = self.locationManager.lastLocation?.coordinate.latitude, let lon = self.locationManager.lastLocation?.coordinate.longitude {
+            AF.request("\(Constants.BaseUrl)/discovers/search_people", method: .get, parameters: ["user_id": user_id, "term": searchTerm, "lat": lat, "lon": lon]).responseData { data in
+                let json = try! JSON(data: data.data!)
+                viewModel.data = []
+                for user in json {
+                    let userValue = user.1["user"].dictionaryValue
+                    let distanceValue = user.1["distance"].stringValue
+                    let dnas = user.1["dnas"].arrayValue.map { $0.stringValue }
+                    
+                    self.viewModel.data.append(
+                        Person(
+                            username: userValue["username"]!.stringValue,
+                            city: userValue["city"]!.stringValue,
+                            price: userValue["meeting_rate"]!.stringValue,
+                            occupation: userValue["occupation"]!.stringValue,
+                            locationAcceptedDistance: distanceValue,
+                            dnas: dnas.joined(separator: ","),
+                            s3AvatarPhoto: userValue["s3_avatar_photo"]!["url"].stringValue
+                        )
+                    )
                 }
             }
         }
