@@ -80,25 +80,29 @@ struct FilterPeopleContentView: View {
                         VStack {
                             Image(systemName: "phone.fill").font(.system(size: 16, weight: .regular))
                             Text("Phone")
-                        }.onTapGesture {
+                        }.foregroundColor(selectedColor(meetingMethod: "phone"))
+                        .onTapGesture {
                             self.filterPeopleViewModel.meetingMethod = "phone"
                         }
                         VStack {
                             Image(systemName: "video.fill").font(.system(size: 16, weight: .regular))
                             Text("Video")
-                        }.onTapGesture {
+                        }.foregroundColor(selectedColor(meetingMethod: "video"))
+                        .onTapGesture {
                             self.filterPeopleViewModel.meetingMethod = "video"
                         }
                         VStack {
                             Image(systemName: "person.fill").font(.system(size: 16, weight: .regular))
                             Text("In-Person")
-                        }.onTapGesture {
+                        }.foregroundColor(selectedColor(meetingMethod: "in-person"))
+                        .onTapGesture {
                             self.filterPeopleViewModel.meetingMethod = "in-person"
                         }
                     }
                 }.foregroundColor(.white)
                 Spacer()
                 Button(action: {
+                    //filterPeopleViewModel.isLoading = true
                     presentationMode.wrappedValue.dismiss()
                 }, label: {
                     Text("Filter").foregroundColor(.white).padding().overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 1)).foregroundColor(.white)
@@ -110,6 +114,25 @@ struct FilterPeopleContentView: View {
                     filterPeopleViewModel.address = "\(street), \(state) \(zipcode)"
                 }
             }
+        }
+    }
+    
+    
+    func selectedColor(meetingMethod: String) -> Color {
+        return filterPeopleViewModel.meetingMethod == meetingMethod ? Color.gray : Color.white
+    }
+}
+
+extension FilterPeopleContentView {
+    struct MeetingTypeSelctorModifier: ViewModifier {
+        func body(content: Content) -> some View {
+            return content.padding().overlay(Capsule(style: .continuous).stroke(Color.white, style: StrokeStyle(lineWidth: 2)))
+        }
+    }
+    
+    struct PlaceholderModifier: ViewModifier {
+        func body(content: Content) -> some View {
+            return content.padding()
         }
     }
 }

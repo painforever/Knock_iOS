@@ -14,4 +14,6 @@ class FilterPeopleViewModel: ObservableObject {
     @Published var address: String = ""
     @Published var price: Double = 0.0
     @Published var meetingMethod: String = ""
+    @Published var filterClicked: Bool = false
+    @Published var isLoading = false
 }

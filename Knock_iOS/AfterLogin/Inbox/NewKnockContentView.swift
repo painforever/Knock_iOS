@@ -79,6 +79,14 @@ struct NewKnockContentView: View {
                     }
                 }
             }
+            
+            VStack {
+                Button {
+                    
+                } label: {
+                    Text("Create").themeButton(height: 30)
+                }
+            }
 
         }.padding()
     }
