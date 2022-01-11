@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Alamofire
+
 extension NewKnockContentView {
     class NewKnockViewModel: ObservableObject {
         @Published var to = ""
@@ -13,17 +15,21 @@ extension NewKnockContentView {
         @Published var content = "Knock Knock, Your message here..."
         @Published var price: Double = 0.0
         @Published var meetingMethod: String = "phone"
+        @Published var knockType: String = "Romantic"
+        @Published var isKnockTypeOpen = false
     }
 }
 struct NewKnockContentView: View {
     @ObservedObject var viewModel: NewKnockViewModel = NewKnockViewModel()
     var body: some View {
-        VStack() {
-            TextField("To", text: $viewModel.to)
-            underline()
-            TextField("Subject", text: $viewModel.title)
-            underline()
-            TextEditor(text: $viewModel.content)
+        VStack {
+            Group {
+                TextField("To", text: $viewModel.to)
+                underline()
+                TextField("Subject", text: $viewModel.title)
+                underline()
+                TextEditor(text: $viewModel.content)
+            }
             
             VStack {
                 HStack {
@@ -45,7 +51,22 @@ struct NewKnockContentView: View {
             .padding(20)
             .frame(height: 120)
             
-            Divider().background(Color(.white))
+            Group {
+                Divider().background(Color(.white))
+                
+                VStack {
+                    Button(action: {
+                        viewModel.isKnockTypeOpen = true
+                    }, label: {
+                        Text("Knock Type").themeButton(height: 50)
+                    }).sheet(isPresented: $viewModel.isKnockTypeOpen) {
+                        KnockTypesContentView(newKnockViewModel: viewModel)
+                    }
+                }
+                
+                Divider().background(Color(.white))
+            }
+            
             
             VStack {
                 HStack {
@@ -81,11 +102,11 @@ struct NewKnockContentView: View {
             }
             
             VStack {
-                Button {
+                Button(action: {
                     
-                } label: {
+                }, label: {
                     Text("Create").themeButton(height: 30)
-                }
+                })
             }
 
         }.padding()
@@ -101,6 +122,27 @@ struct NewKnockContentView: View {
     
     func selectedColor(meetingMethod: String) -> Color {
         return viewModel.meetingMethod == meetingMethod ? Color(Constants.themeColor) : Color(.black)
+    }
+    
+    func createKnock() {
+        if let user_id = UserDefaults.standard.string(forKey: Constants.userId) {
+            AF.request("\(Constants.BaseUrl)/knocks", method: .post,
+                       parameters: [
+                        "knock": [
+                            "user_id": user_id,
+                            "subject": viewModel.title,
+                            "knock_type": viewModel.knockType,
+                            "knockee_id": "17"
+                          ],
+                        "knock_message": [
+                            "message": viewModel.content,
+                            "user_id": user_id,
+                            "state": 1
+                        ]
+                       ]).responseJSON { data in
+                           
+                       }
+        }
     }
 }
 

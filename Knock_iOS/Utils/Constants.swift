@@ -10,6 +10,7 @@ import SwiftUI
 
 class Constants {
     static let BaseUrl = "http://127.0.0.1:3000/api"
+    static let knockTypes = ["Business", "Entertainment", "Romantic", "Funny", "Secret"]
     //static let themeColor = Color(red: 0 / 255, green: 207 / 255, blue: 105 / 255)
     static let themeColor = #colorLiteral(red: 0.012700947, green: 0.6936134696, blue: 0.8442209959, alpha: 1)
     static let dnaColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
