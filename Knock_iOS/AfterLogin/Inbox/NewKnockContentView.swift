@@ -15,7 +15,7 @@ extension NewKnockContentView {
         @Published var content = "Knock Knock, Your message here..."
         @Published var price: Double = 0.0
         @Published var meetingMethod: String = "phone"
-        @Published var knockType: String = "Romantic"
+        @Published var knockType: String = ""
         @Published var isKnockTypeOpen = false
     }
 }
@@ -24,7 +24,15 @@ struct NewKnockContentView: View {
     var body: some View {
         VStack {
             Group {
-                TextField("To", text: $viewModel.to)
+                TextField("To", text: $viewModel.to).onChange(of: viewModel.to) { value in
+                    print("DEBUG: \(value)")
+                }
+                List {
+                    ForEach((1...5), id: \.self) {
+                        Text("terrorgeek\($0)@gmail.com")
+                    }
+                }.listStyle(PlainListStyle())
+                
                 underline()
                 TextField("Subject", text: $viewModel.title)
                 underline()
@@ -54,14 +62,16 @@ struct NewKnockContentView: View {
             Group {
                 Divider().background(Color(.white))
                 
-                VStack {
+                HStack(alignment: .center, spacing: 5) {
                     Button(action: {
                         viewModel.isKnockTypeOpen = true
                     }, label: {
-                        Text("Knock Type").themeButton(height: 50)
+                        Text(viewModel.knockType == "" ? "Knock Type" : viewModel.knockType).themeButton(height: 50)
+                        
                     }).sheet(isPresented: $viewModel.isKnockTypeOpen) {
                         KnockTypesContentView(newKnockViewModel: viewModel)
                     }
+                    showKnockTypeImage()
                 }
                 
                 Divider().background(Color(.white))
@@ -142,6 +152,16 @@ struct NewKnockContentView: View {
                        ]).responseJSON { data in
                            
                        }
+        }
+    }
+    
+    @ViewBuilder
+    func showKnockTypeImage() -> some View {
+        if viewModel.knockType == "" {
+            EmptyView()
+        }
+        else {
+            Image(viewModel.knockType).resizable().frame(width: 50, height: 50)
         }
     }
 }
