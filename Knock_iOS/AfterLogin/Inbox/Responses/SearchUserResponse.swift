@@ -1,16 +1,15 @@
 //
-//  User.swift
+//  SearchUserResponse.swift
 //  Knock_iOS
 //
-//  Created by yusong on 12/13/21.
+//  Created by yusong on 1/13/22.
 //
 
 import Foundation
 
-struct User: Codable, Identifiable {
+struct SearchUserResponse: Codable, Identifiable {
     var id: Int
     var username: String
-    var email: String
     var s3AvatarPhoto: S3AvatarPhoto
     
     struct S3AvatarPhoto: Codable {

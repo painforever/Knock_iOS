@@ -62,6 +62,7 @@ struct LocationContentView: View {
                             self.searchClicked = true
                             self.locationManager.status = .noResults
                             self.filterPeopleViewModel.address = completionResult.title
+                            //self.locationManager.queryFragment = completionResult.title
                             
                             self.locationManager.getLocation(from: self.filterPeopleViewModel.address) { location in
                                 if let location = location {
@@ -77,6 +78,7 @@ struct LocationContentView: View {
                         
                     }
                 }
+                .listStyle(PlainListStyle())
             }
             
             //Actual maps

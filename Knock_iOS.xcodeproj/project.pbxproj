@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0905E48B27910B870079FC1A /* SearchUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0905E48A27910B870079FC1A /* SearchUserResponse.swift */; };
 		090AAFAC2738B21C00804650 /* KnockCardContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090AAFAB2738B21C00804650 /* KnockCardContentView.swift */; };
 		090AAFAE2738B35E00804650 /* ConversationContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090AAFAD2738B35E00804650 /* ConversationContentView.swift */; };
 		090FED662734D91600446883 /* LocationContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090FED652734D91600446883 /* LocationContentView.swift */; };
@@ -83,6 +84,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0905E48A27910B870079FC1A /* SearchUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserResponse.swift; sourceTree = "<group>"; };
 		090AAFAB2738B21C00804650 /* KnockCardContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnockCardContentView.swift; sourceTree = "<group>"; };
 		090AAFAD2738B35E00804650 /* ConversationContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationContentView.swift; sourceTree = "<group>"; };
 		090FED652734D91600446883 /* LocationContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationContentView.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 			children = (
 				09AF3EEC27483DA700FC1322 /* KnockResponse.swift */,
 				09AF3EF02748779700FC1322 /* KnockMessageResponse.swift */,
+				0905E48A27910B870079FC1A /* SearchUserResponse.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -689,6 +692,7 @@
 				09B53BE3273C5A69005FE806 /* Task.swift in Sources */,
 				090AAFAE2738B35E00804650 /* ConversationContentView.swift in Sources */,
 				09C302CD272A4D7F00A2A54E /* OnBoardingContentView2.swift in Sources */,
+				0905E48B27910B870079FC1A /* SearchUserResponse.swift in Sources */,
 				091124CF2739817400E90F44 /* CustomDatePickerContentView.swift in Sources */,
 				09C302D3272A4E0300A2A54E /* SignupContentView.swift in Sources */,
 				097B8E6D272B4CC600BDFFAA /* ViewExtensions.swift in Sources */,

@@ -19,6 +19,10 @@ struct AccountContentView: View {
     @State var preferredDistance = 10.0
     @State var anyDistance: Bool = true
     
+    @State var cardNumber: String = ""
+    @State var cardExpireDate: String = ""
+    @State var CVC: String = ""
+    
     @State private var avatarUrl: String = "https://st3.depositphotos.com/1007566/13175/v/600/depositphotos_131750410-stock-illustration-woman-female-avatar-character.jpg"
     @State private var showingImagePicker = false
     @State private var avatarImage: UIImage?
@@ -63,6 +67,22 @@ struct AccountContentView: View {
                     }.padding(.horizontal, 30)
                     .padding(.vertical, 10)
                     .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 1)).frame(maxWidth: .infinity)
+                    
+                    VStack {
+                        VStack(alignment: .center) {
+                            Text("Card Information").foregroundColor(.white).padding(.top, 30)
+                            HStack {
+                                Image("visa").resizable().frame(width: 50, height: 50)
+                                Image("master_card").resizable().frame(width: 50, height: 30)
+                                Image("discover_card").resizable().frame(width: 50, height: 30)
+                            }
+                        }
+                        TextField("Card Number", text: self.$cardNumber).frame(height: 20).modifier(ThemeTextField())
+                        HStack {
+                            TextField("MM/YY", text: self.$cardExpireDate).frame(height: 20).modifier(ThemeTextField())
+                            TextField("CVC", text: self.$CVC).frame(height: 20).modifier(ThemeTextField())
+                        }
+                    }.padding()
                     
                     Button(action: {
                         if let userId = UserDefaults.standard.string(forKey: Constants.userId) {

@@ -17,6 +17,7 @@ extension NewKnockContentView {
         @Published var meetingMethod: String = "phone"
         @Published var knockType: String = ""
         @Published var isKnockTypeOpen = false
+        @Published var toResults = [SearchUserResponse]()
     }
 }
 struct NewKnockContentView: View {
@@ -25,13 +26,33 @@ struct NewKnockContentView: View {
         VStack {
             Group {
                 TextField("To", text: $viewModel.to).onChange(of: viewModel.to) { value in
-                    print("DEBUG: \(value)")
+                    if value.trimmingCharacters(in: .whitespacesAndNewlines).count == 0 {
+                        viewModel.toResults = []
+                        return
+                    }
+                    if let userId = UserDefaults.standard.string(forKey: Constants.userId) {
+                        AF.request("\(Constants.BaseUrl)/discovers/search_people_for_new_knock", method: .get, parameters: ["term": value, "user_id": userId]).responseJSON { data in
+                            let jsonDecoder = JSONDecoder()
+                            jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+                            let json = try! jsonDecoder.decode([SearchUserResponse].self, from: data.data!)
+                            viewModel.toResults = json
+                        }
+                    }
                 }
                 List {
-                    ForEach((1...5), id: \.self) {
-                        Text("terrorgeek\($0)@gmail.com")
+                    ForEach(viewModel.toResults) { user in
+                        HStack {
+                            Text("\(user.username)")
+                            Image(user.s3AvatarPhoto.url)
+                        }
+                        .onTapGesture {
+                            viewModel.to = user.username
+                            viewModel.toResults = []
+                        }
                     }
-                }.listStyle(PlainListStyle())
+                }
+                .frame(height: CGFloat(viewModel.toResults.count) * 50)
+                .listStyle(PlainListStyle())
                 
                 underline()
                 TextField("Subject", text: $viewModel.title)
