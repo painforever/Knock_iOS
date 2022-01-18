@@ -55,6 +55,8 @@
 		09C302D8272A523F00A2A54E /* OnBoardingFooterContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C302D7272A523F00A2A54E /* OnBoardingFooterContentView.swift */; };
 		09C663F52746047600A2594E /* FilterPeopleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C663F42746047600A2594E /* FilterPeopleViewModel.swift */; };
 		09D32583276AEEC8006C48BD /* NewKnockContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D32582276AEEC8006C48BD /* NewKnockContentView.swift */; };
+		09DB92332797484F00666454 /* OperationCellContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DB92322797484F00666454 /* OperationCellContentView.swift */; };
+		09DB923527974CD900666454 /* DNAsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DB923427974CD900666454 /* DNAsContentView.swift */; };
 		09ECFD50273897A2002D49FE /* ThemeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ECFD4F273897A2002D49FE /* ThemeButton.swift */; };
 		09ECFD5227389891002D49FE /* ThemeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ECFD5127389891002D49FE /* ThemeTextField.swift */; };
 		09ECFD5527389B0E002D49FE /* AccountContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ECFD5427389B0E002D49FE /* AccountContentView.swift */; };
@@ -139,6 +141,8 @@
 		09C302D7272A523F00A2A54E /* OnBoardingFooterContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingFooterContentView.swift; sourceTree = "<group>"; };
 		09C663F42746047600A2594E /* FilterPeopleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPeopleViewModel.swift; sourceTree = "<group>"; };
 		09D32582276AEEC8006C48BD /* NewKnockContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewKnockContentView.swift; sourceTree = "<group>"; };
+		09DB92322797484F00666454 /* OperationCellContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationCellContentView.swift; sourceTree = "<group>"; };
+		09DB923427974CD900666454 /* DNAsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNAsContentView.swift; sourceTree = "<group>"; };
 		09ECFD4F273897A2002D49FE /* ThemeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeButton.swift; sourceTree = "<group>"; };
 		09ECFD5127389891002D49FE /* ThemeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeTextField.swift; sourceTree = "<group>"; };
 		09ECFD5427389B0E002D49FE /* AccountContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountContentView.swift; sourceTree = "<group>"; };
@@ -357,6 +361,8 @@
 			children = (
 				09ECFD5427389B0E002D49FE /* AccountContentView.swift */,
 				095AA39D27965E3C00B5CE44 /* ProfileContentView.swift */,
+				09DB92322797484F00666454 /* OperationCellContentView.swift */,
+				09DB923427974CD900666454 /* DNAsContentView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -672,6 +678,7 @@
 				09F44B3B272CC7DB003022FA /* DiscoverPeopleCardContentView.swift in Sources */,
 				09AF3EEF274844E000FC1322 /* Knock.swift in Sources */,
 				0910717E274C2D4600365768 /* LoadingView.swift in Sources */,
+				09DB92332797484F00666454 /* OperationCellContentView.swift in Sources */,
 				09C302D8272A523F00A2A54E /* OnBoardingFooterContentView.swift in Sources */,
 				09B10329272DF31C008A9CA4 /* FilterPeopleContentView.swift in Sources */,
 				096250122759D70C00EA5D23 /* KnockMetaCalendarResponse.swift in Sources */,
@@ -703,6 +710,7 @@
 				09C302CF272A4D9600A2A54E /* OnBoardingContentView3.swift in Sources */,
 				096B9D19273EC7CE004F51F5 /* Person.swift in Sources */,
 				090FED662734D91600446883 /* LocationContentView.swift in Sources */,
+				09DB923527974CD900666454 /* DNAsContentView.swift in Sources */,
 				09480C8B274F2058006062AA /* KnockCalendarResponse.swift in Sources */,
 				09C663F52746047600A2594E /* FilterPeopleViewModel.swift in Sources */,
 			);
