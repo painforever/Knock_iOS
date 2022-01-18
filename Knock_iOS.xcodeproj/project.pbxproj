@@ -21,6 +21,7 @@
 		09480C88274F1E44006062AA /* KnockMetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09480C87274F1E44006062AA /* KnockMetaData.swift */; };
 		09480C8B274F2058006062AA /* KnockCalendarResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09480C8A274F2058006062AA /* KnockCalendarResponse.swift */; };
 		0953CFFD278D3D8D00BADF98 /* KnockTypesContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0953CFFC278D3D8D00BADF98 /* KnockTypesContentView.swift */; };
+		095AA39E27965E3C00B5CE44 /* ProfileContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AA39D27965E3C00B5CE44 /* ProfileContentView.swift */; };
 		096250122759D70C00EA5D23 /* KnockMetaCalendarResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096250112759D70C00EA5D23 /* KnockMetaCalendarResponse.swift */; };
 		096B9D19273EC7CE004F51F5 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096B9D18273EC7CE004F51F5 /* Person.swift */; };
 		097B8E69272B4C7000BDFFAA /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097B8E68272B4C7000BDFFAA /* Validators.swift */; };
@@ -98,6 +99,7 @@
 		09480C87274F1E44006062AA /* KnockMetaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnockMetaData.swift; sourceTree = "<group>"; };
 		09480C8A274F2058006062AA /* KnockCalendarResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnockCalendarResponse.swift; sourceTree = "<group>"; };
 		0953CFFC278D3D8D00BADF98 /* KnockTypesContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnockTypesContentView.swift; sourceTree = "<group>"; };
+		095AA39D27965E3C00B5CE44 /* ProfileContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContentView.swift; sourceTree = "<group>"; };
 		096250112759D70C00EA5D23 /* KnockMetaCalendarResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnockMetaCalendarResponse.swift; sourceTree = "<group>"; };
 		096B9D18273EC7CE004F51F5 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		097B8E68272B4C7000BDFFAA /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				09ECFD5427389B0E002D49FE /* AccountContentView.swift */,
+				095AA39D27965E3C00B5CE44 /* ProfileContentView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -659,6 +662,7 @@
 				09ECFD5227389891002D49FE /* ThemeTextField.swift in Sources */,
 				09C302C4272A49D100A2A54E /* OnBoardingHubContentView.swift in Sources */,
 				09ECFD5E2738AFC7002D49FE /* InboxContentView.swift in Sources */,
+				095AA39E27965E3C00B5CE44 /* ProfileContentView.swift in Sources */,
 				09C302CB272A4D6800A2A54E /* OnBoardingContentView1.swift in Sources */,
 				09ECFD5B2738A891002D49FE /* CalendarContentView.swift in Sources */,
 				09C302C6272A49FE00A2A54E /* OnBoardingContentView.swift in Sources */,
