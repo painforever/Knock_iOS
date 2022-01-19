@@ -11,6 +11,8 @@ struct User: Codable, Identifiable {
     var id: Int
     var username: String
     var email: String
+    var city: String
+    var state: String
     var s3AvatarPhoto: S3AvatarPhoto
     
     struct S3AvatarPhoto: Codable {

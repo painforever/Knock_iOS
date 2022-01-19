@@ -7,19 +7,36 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
+import Alamofire
 
 struct ProfileContentView: View {
+    @Environment(\.presentationMode) var presentationMode
+    
+    @State var avatarUrl: String = ""
+    @Binding var username: String
+    @State var state: String = "VA"
+    @State var city: String = "Arlington"
+    
     var body: some View {
         ScrollView {
             GeometryReader { g in
                 VStack {
                     VStack {
+                        HStack {
+                            Spacer()
+                            Button {
+                                presentationMode.wrappedValue.dismiss()
+                            } label: {
+                                Text("Dismiss").bold().padding(.top, 10)
+                            }
+
+                        }.padding()
                         VStack {
-                            AnimatedImage(url: URL(string: "https://media-exp1.licdn.com/dms/image/C5103AQG1h4gxBsRAeg/profile-displayphoto-shrink_200_200/0/1516871913633?e=1648080000&v=beta&t=9WOQ0cL5n3_zU-ECXx9UGsmVF76ZMPJmLqYFeBEu4ww")).resizable().frame(width: 150, height: 150).cornerRadius(75)
-                            Text("#username").bold()
+                            AnimatedImage(url: URL(string: avatarUrl)).resizable().frame(width: 150, height: 150).cornerRadius(75)
+                            Text("#\(username)").bold()
                             HStack {
                                 Image(systemName: "location.circle.fill")
-                                Text("1600 S Joyce St, Arlington, VA")
+                                Text("1600 S Joyce St, \(city), \(state)")
                             }
                         }
                         HStack {
@@ -38,7 +55,7 @@ struct ProfileContentView: View {
                             Text("Total hours: \(341) hrs")
                         }.padding()
                     }
-                    .frame(width: g.size.width, height: g.size.height * 0.45)
+                    .frame(width: g.size.width, height: g.size.height * 0.50)
                     .background(Color(Constants.themeColor))
                     .foregroundColor(.white)
                     
@@ -49,17 +66,33 @@ struct ProfileContentView: View {
                         }
                         DNAsContentView()
                         Spacer()
-                        
                     }
-                    .frame(width: g.size.width, height: g.size.height * 0.55)
+                    .frame(width: g.size.width, height: g.size.height * 0.50)
+                    .padding(.top, 30)
                 }
             }.frame(height: UIScreen.main.bounds.height)
-        }.ignoresSafeArea()
+        }
+        .ignoresSafeArea()
+        .onAppear {
+            loadData()
+        }
+    }
+    
+    func loadData() {
+        AF.request("\(Constants.BaseUrl)/users/get_user_by_username?username=\(username)", method: .get).responseJSON { data in
+            let jsonDecoder = JSONDecoder()
+            jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+            let json = try! jsonDecoder.decode(User.self, from: data.data!)
+            avatarUrl = json.s3AvatarPhoto.url
+            username = json.username
+            city = json.city
+            state = json.state
+        }
     }
 }
 
 struct ProfileContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileContentView()
+        ProfileContentView(username: .constant("painforever"))
     }
 }

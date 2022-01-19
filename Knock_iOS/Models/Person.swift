@@ -9,7 +9,7 @@ import Foundation
 
 struct Person: Identifiable {
     let id = UUID().uuidString
-    let username: String
+    var username: String
     let city: String
     let price: String
     let occupation: String
